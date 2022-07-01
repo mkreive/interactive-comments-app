@@ -5,10 +5,33 @@
         color: $color-neutral-grayish-blue;
         list-style: none;
         margin-bottom: $margin-bottom-small;
-        transition: all 0.2s;
+        position: relative;
+        padding: 0.4rem 4rem;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
 
         &:hover {
-            cursor: pointer;
+            color: $color-primary-soft-red;
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 0;
+            left: 0;
+            background-color: $color-primary-soft-red;
+            transition: width 0.3s ease-in-out;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+
+        &:hover::after {
+            width: 5rem;
             color: $color-primary-soft-red;
         }
     }
