@@ -1,4 +1,13 @@
 .signin {
     display: flex;
     flex-direction: column;
+
+    &__inputs {
+        margin-bottom: $margin-bottom-small;
+    }
+    &__btns {
+        display: flex;
+        margin-bottom: $margin-bottom-huge;
+        flex-direction: column;
+    }
 }

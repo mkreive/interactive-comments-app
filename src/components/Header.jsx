@@ -20,10 +20,14 @@ const Header = function () {
                 </ul>
             </nav>
             <div className='signin'>
-                <input type='text' className='signin__input' placeholder='Username' />
-                <input type='text' className='signin__input' placeholder='email@email.com' />
-                <button className='btn'>Sign Up</button>
-                <button className='btn'>Log In</button>
+                <div className='signin__inputs'>
+                    <input type='text' className='input' placeholder='Username' />
+                    <input type='text' className='input' placeholder='email@email.com' />
+                </div>
+                <div className='signin__btns'>
+                    <button className='btn'>Sign Up</button>
+                    <button className='btn'>Log In</button>
+                </div>
             </div>
         </header>
     );
