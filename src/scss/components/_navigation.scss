@@ -1,0 +1,15 @@
+.navigation {
+    margin-bottom: $margin-bottom-huge;
+    &__item {
+        font-size: $font-size-medium;
+        color: $color-neutral-grayish-blue;
+        list-style: none;
+        margin-bottom: $margin-bottom-small;
+        transition: all 0.2s;
+
+        &:hover {
+            cursor: pointer;
+            color: $color-primary-soft-red;
+        }
+    }
+}

@@ -1,3 +1,16 @@
 .header {
-    background-color: aqua;
+    width: 20%;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: $margin-bottom-big;
+
+        &-logo {
+            margin-right: 1.5rem;
+        }
+        &-name {
+            font-size: $font-size-huge;
+        }
+    }
 }
