@@ -8,11 +8,13 @@ const Main = function () {
                 <h1 className='header-huge'>Topics</h1>
                 <div className='topics'>
                     <div className='topics__btn'>Family</div>
-                    <div className='topics__btn'>Family</div>
-                    <div className='topics__btn'>Family</div>
-                    <div className='topics__btn'>Family</div>
-                    <div className='topics__btn'>Family</div>
-                    <div className='topics__btn'>Family</div>
+                    <div className='topics__btn'>Life</div>
+                    <div className='topics__btn'>Hobbies</div>
+                    <div className='topics__btn'>Travel</div>
+                    <div className='topics__btn'>Health</div>
+                    <div className='topics__btn'>food</div>
+                    <div className='topics__btn'>Tech</div>
+                    <div className='topics__btn selected'>animals</div>
                 </div>
             </header>
             <div className='main__body'></div>

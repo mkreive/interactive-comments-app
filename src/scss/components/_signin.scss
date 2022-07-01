@@ -3,11 +3,11 @@
     flex-direction: column;
 
     &__inputs {
-        margin-bottom: $margin-bottom-small;
+        margin-bottom: $margin-bottom-medium;
     }
     &__btns {
         display: flex;
         margin-bottom: $margin-bottom-huge;
-        flex-direction: column;
+        gap: 2rem;
     }
 }

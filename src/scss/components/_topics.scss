@@ -1,3 +1,31 @@
 .topics {
-    width: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    &__btn {
+        text-align: center;
+        font-size: $font-size-medium;
+        color: $color-neutral-very-light-gray;
+        text-transform: lowercase;
+        padding: 1rem;
+        width: 20%;
+        height: 4rem;
+        background-color: $color-primary-moderate-blue;
+        border-radius: $border-radius-medium;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-primary-light-grayish-blue;
+            color: $color-primary-moderate-blue;
+            font-weight: $font-weight-medium;
+        }
+    }
+}
+
+.selected {
+    background-color: $color-primary-light-grayish-blue;
+    color: $color-primary-moderate-blue;
+    font-weight: $font-weight-medium;
 }

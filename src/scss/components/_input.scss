@@ -4,8 +4,10 @@
     outline: none;
     padding: 0.5rem 1.5rem;
     font-size: $font-size-medium;
-    border-radius: $border-radius-medium;
+    background-color: $color-neutral-very-light-gray;
+    border-bottom: 1px solid $color-neutral-light-grayish-blue;
+
     &::placeholder {
-        color: $color-neutral-light-gray;
+        color: $color-neutral-light-grayish-blue;
     }
 }

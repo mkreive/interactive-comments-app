@@ -12,5 +12,7 @@
 
     &:hover {
         background-color: $color-primary-pale-red;
+        color: $color-primary-soft-red;
+        font-weight: $font-weight-medium;
     }
 }
