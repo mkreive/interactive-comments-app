@@ -1,5 +1,7 @@
 import React from 'react';
 import '../index.scss';
+import Reply from './Reply';
+import Comment from './Comment';
 
 const Main = function () {
     return (
@@ -17,7 +19,10 @@ const Main = function () {
                     <div className='topics__btn selected'>animals</div>
                 </div>
             </header>
-            <div className='main__body'></div>
+            <div className='main__body'>
+                <Comment></Comment>
+                <Reply></Reply>
+            </div>
         </main>
     );
 };

@@ -1,0 +1,16 @@
+.comment {
+    display: flex;
+    gap: 2rem;
+
+    &__votes {
+        display: flex;
+        flex-direction: column;
+        background-color: $color-neutral-light-gray;
+        border-radius: $border-radius-medium;
+        height: fit-content;
+        color: $color-primary-moderate-blue;
+        font-weight: $font-weight-medium;
+        font-size: $font-size-small;
+        padding: 1rem;
+    }
+}
