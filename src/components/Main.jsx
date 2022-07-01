@@ -5,13 +5,15 @@ const Main = function () {
     return (
         <main className='main'>
             <header className='main__header'>
-                <h1>Topics</h1>
-                <div>Family</div>
-                <div>Happiness</div>
-                <div>Animals</div>
-                <div>Job</div>
-                <div>Hobbies</div>
-                <div>Life</div>
+                <h1 className='header-huge'>Topics</h1>
+                <div className='topics'>
+                    <div className='topics__btn'>Family</div>
+                    <div className='topics__btn'>Family</div>
+                    <div className='topics__btn'>Family</div>
+                    <div className='topics__btn'>Family</div>
+                    <div className='topics__btn'>Family</div>
+                    <div className='topics__btn'>Family</div>
+                </div>
             </header>
             <div className='main__body'></div>
         </main>
