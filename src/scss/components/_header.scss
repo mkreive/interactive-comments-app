@@ -1,6 +1,32 @@
 .header {
+    &-reply {
+        padding-left: 2rem;
+        font-size: $font-size-small;
+        color: $color-primary-moderate-blue;
+        font-weight: $font-weight-medium;
+        cursor: pointer;
+        background-image: url('https://res.cloudinary.com/kreiva/image/upload/v1656577483/Interactive%20comments%20app/icon-reply_aozgv1.svg');
+        background-repeat: no-repeat;
+        background-position: 1px 0px;
+        margin-left: auto;
+    }
+
     &-huge {
         font-size: $font-size-huge;
         margin-bottom: $margin-bottom-big;
+    }
+    &-small {
+        font-size: $font-size-small;
+        &-colored {
+            background-color: $color-primary-light-grayish-blue;
+            color: $color-primary-moderate-blue;
+            font-weight: $font-weight-medium;
+            padding: 0 1rem;
+        }
+
+        &-gray {
+            color: $color-neutral-grayish-blue;
+            font-weight: $font-weight-light;
+        }
     }
 }
