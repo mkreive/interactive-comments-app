@@ -6,9 +6,9 @@ const Comment = function () {
         <div className='card'>
             <div className='comment'>
                 <div className='comment__votes'>
-                    <span className='comment__votes-add'>+</span>
-                    <span className='comment__votes-number'>12</span>
-                    <span className='comment__voter-minus'>-</span>
+                    <span className='comment__votes__btn'>+</span>
+                    <span className='comment__votes__btn-number'>12</span>
+                    <span className='comment__votes__btn'>-</span>
                 </div>
                 <article className='comment__main'>
                     <header className='comment__main__header'>

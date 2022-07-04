@@ -9,10 +9,20 @@
         background-color: $color-neutral-light-gray;
         border-radius: $border-radius-medium;
         height: fit-content;
-        color: $color-primary-moderate-blue;
+        color: $color-neutral-light-grayish-blue;
         font-weight: $font-weight-medium;
         font-size: $font-size-small;
-        padding: 1rem;
+        padding: 0 0.4rem;
+        text-align: center;
+        cursor: pointer;
+
+        &__btn {
+            padding: 1rem;
+
+            &-number {
+                color: $color-primary-moderate-blue;
+            }
+        }
     }
 
     &__main {

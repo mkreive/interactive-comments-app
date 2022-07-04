@@ -16,7 +16,11 @@ const Main = function () {
                     <div className='topics__btn'>Health</div>
                     <div className='topics__btn'>food</div>
                     <div className='topics__btn'>Tech</div>
-                    <div className='topics__btn selected'>animals</div>
+                    <div className='topics__btn selected    '>animals</div>
+                    <div className='topics__btn'>plants</div>
+                    <div className='topics__btn'>people</div>
+                    <div className='topics__btn'>politics</div>
+                    <div className='topics__btn'>religion</div>
                 </div>
             </header>
             <div className='main__body'>
