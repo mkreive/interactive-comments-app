@@ -15,8 +15,8 @@ const Main = function () {
                     <div className='topics__btn'>Travel</div>
                     <div className='topics__btn'>Health</div>
                     <div className='topics__btn'>food</div>
-                    <div className='topics__btn'>Tech</div>
-                    <div className='topics__btn selected'>animals</div>
+                    <div className='topics__btn selected'>Tech</div>
+                    <div className='topics__btn'>animals</div>
                     <div className='topics__btn'>plants</div>
                     <div className='topics__btn'>people</div>
                     <div className='topics__btn'>politics</div>
@@ -26,6 +26,7 @@ const Main = function () {
             <div className='main__body'>
                 <Comment></Comment>
                 <Reply></Reply>
+                <Comment></Comment>
             </div>
         </main>
     );
