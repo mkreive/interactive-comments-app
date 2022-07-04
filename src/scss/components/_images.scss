@@ -1,5 +1,9 @@
 .images {
     &__photo {
         width: 3rem;
+
+        &--reply {
+            width: 4rem;
+        }
     }
 }

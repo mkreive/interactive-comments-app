@@ -15,4 +15,18 @@
         color: $color-primary-soft-red;
         font-weight: $font-weight-medium;
     }
+
+    &--blue {
+        background-color: $color-primary-moderate-blue;
+        color: $color-white;
+        font-size: $font-size-medium;
+        text-transform: uppercase;
+        padding: 1rem 2rem;
+
+        &:hover {
+            background-color: $color-primary-light-grayish-blue;
+            color: $color-primary-moderate-blue;
+            font-weight: $font-weight-light;
+        }
+    }
 }

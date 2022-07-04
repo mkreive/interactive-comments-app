@@ -2,4 +2,16 @@
     font-size: $font-size-medium;
     color: $color-neutral-light-grayish-blue;
     line-height: 2rem;
+
+    &--area {
+        width: 100%;
+        height: auto;
+        padding: 2rem;
+        border-radius: $border-radius-medium;
+        resize: vertical;
+        outline: none;
+        font-size: $font-size-medium;
+        color: $color-black;
+        border: 1px solid $color-primary-moderate-blue;
+    }
 }
