@@ -1,16 +1,15 @@
 import React from 'react';
-import data from './data.json';
 
-const dataContext = React.createContext({
-    user: null,
+const DataContext = React.createContext({
+    loggedUser: null,
 
-    comments: [data.comments],
+    comments: [],
     addComment: () => {},
     deleteComment: () => {},
     editComment: () => {},
     voteComment: () => {},
 
-    replys: [],
+    replies: [],
     addPost: () => {},
     deletePost: () => {},
     editPost: () => {},
@@ -22,8 +21,4 @@ const dataContext = React.createContext({
     editUser: () => {},
 });
 
-export const dataContextProvider = function (props) {
-    return <dataContext.Provider value={data}>{props.children}</dataContext.Provider>;
-};
-
-export default dataContext;
+export default DataContext;
