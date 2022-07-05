@@ -1,0 +1,58 @@
+{
+    "users": [
+        {
+            "id": "amyrobson111",
+            "password": "111",
+            "name": "Amy Robertson",
+            "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
+            "username": "amyrobson",
+            "replies": [],
+            "comments": [
+                {
+                    "id": 1,
+                    "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+                    "createdAt": "1 month ago",
+                    "username": "amyrobson",
+                    "score": 12,
+                    "replies": [{}]
+                }
+            ]
+        },
+        {
+            "id": "timirimi222",
+            "password": "222",
+            "name": "Tim Richardson",
+            "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
+            "username": "timirimi",
+            "replies": [],
+            "comments": [
+                {
+                    "id": 1,
+                    "content": "OMG!",
+                    "createdAt": "1 week ago",
+                    "username": "timirimi",
+                    "score": 2,
+                    "replies": [{}]
+                }
+            ]
+        },
+        {
+            "id": "jasontm333",
+            "password": "333",
+            "name": "Jason Matthews",
+            "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
+            "username": "jasontm",
+            "replies": [],
+            "comments": [
+                {
+                    "id": 1,
+                    "content": "Ulalala!",
+                    "createdAt": "1 day ago",
+                    "username": "jasontm",
+                    "score": -2,
+                    "replies": [{}]
+                }
+            ]
+        }
+    ]
+}

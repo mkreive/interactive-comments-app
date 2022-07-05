@@ -1,21 +1,36 @@
-import React, { useContext, useState } from 'react';
-import DataContext from '../store/DataContext';
+import React, { useState } from 'react';
+import { validateInput, validatePassword } from '../helperFunctions';
+// import DataContext from '../store/DataContext';
 import '../index.scss';
 
 const Header = function () {
     // data
-    const data = useContext(DataContext);
+    // const data = useContext(DataContext);
 
     // states
     const [usernameInput, setUsernameInput] = useState();
     const [passwordInput, setPasswordInput] = useState();
     const [loggedUser, setLoggedUser] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
 
     // handlers
-    const usernameInputHandler = function () {};
-    const passwordInputHandler = function () {};
-    const loginHandler = function (usernameInput) {};
-    const signupHandler = function (usernameInput, passwordInput) {};
+    const usernameInputHandler = function (event) {
+        setUsernameInput(event.target.value);
+    };
+    const passwordInputHandler = function (event) {
+        setPasswordInput(event.target.value);
+    };
+    const submitHandler = function (event) {
+        event.preventDefault();
+        const username = validateInput(usernameInput);
+        const password = validatePassword(passwordInput);
+
+        if (username && password) {
+            setLoggedUser(username);
+        } else {
+            setErrorMessage('Username or password is invalid');
+        }
+    };
 
     return (
         <header className='header'>
@@ -34,20 +49,36 @@ const Header = function () {
                     <li className='navigation__item'>Contacts</li>
                 </ul>
             </nav>
-            <div className='signin'>
-                <div className='signin__inputs'>
-                    <input type='text' className='input' placeholder='Username' onChange={usernameInputHandler} />
-                    <input type='password' className='input' placeholder='password' onChange={passwordInputHandler} />
+            {!loggedUser && (
+                <div className='signin'>
+                    <form onSubmit={submitHandler}>
+                        <div className='signin__inputs'>
+                            <input
+                                type='text'
+                                className='input'
+                                placeholder='Username'
+                                onChange={usernameInputHandler}
+                            />
+                            {errorMessage && <div className='error'>{errorMessage}</div>}
+                            <input
+                                type='password'
+                                className='input'
+                                placeholder='password'
+                                onChange={passwordInputHandler}
+                            />
+                            {errorMessage && <div className='error'>{errorMessage}</div>}
+                        </div>
+                        <div className='signin__btns'>
+                            <button className='btn' type='submit'>
+                                Log In
+                            </button>
+                            <button className='btn' type='submit'>
+                                Sign Up
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div className='signin__btns'>
-                    <button className='btn' onClick={signupHandler}>
-                        Sign Up
-                    </button>
-                    <button className='btn' onClick={loginHandler}>
-                        Log In
-                    </button>
-                </div>
-            </div>
+            )}
         </header>
     );
 };
