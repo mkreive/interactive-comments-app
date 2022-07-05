@@ -21,10 +21,10 @@ const Header = function () {
     };
     const submitHandler = function (event) {
         event.preventDefault();
-        const username = validateInput(usernameInput);
-        const password = validatePassword(passwordInput);
+        const username = usernameInput;
+        const password = passwordInput;
 
-        if (username && password) {
+        if (validateInput(usernameInput) && validatePassword(passwordInput)) {
             setLoggedUser(username);
             data.logUser(username, password);
         } else {

@@ -1,7 +1,10 @@
 import React from 'react';
-import data from '../dataUsers';
+import dataUsers from '../dataUsers';
+
+const data = dataUsers;
 
 const DataContext = React.createContext({
+    data,
     loggedUser: data.loggedUser,
     logUser: () => {},
     createNewUser: () => {},
