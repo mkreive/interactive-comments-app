@@ -1,24 +1,27 @@
 import React from 'react';
+import data from '../dataUsers';
 
 const DataContext = React.createContext({
-    loggedUser: null,
+    loggedUser: data.loggedUser,
+    logUser: () => {},
+    createNewUser: () => {},
 
-    comments: [],
+    users: data.users,
+    addUser: () => {},
+    deleteUser: () => {},
+    editUser: () => {},
+
+    comments: data.comments,
     addComment: () => {},
     deleteComment: () => {},
     editComment: () => {},
     voteComment: () => {},
 
-    replies: [],
+    replies: data.replies,
     addPost: () => {},
     deletePost: () => {},
     editPost: () => {},
     votePost: () => {},
-
-    users: [],
-    addUser: () => {},
-    deleteUser: () => {},
-    editUser: () => {},
 });
 
 export default DataContext;

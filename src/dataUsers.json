@@ -1,4 +1,6 @@
 {
+    "loggedUser": null,
+
     "users": [
         {
             "id": "amyrobson111",
@@ -9,10 +11,7 @@
             "replies": [],
             "comments": [
                 {
-                    "id": 1,
-                    "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
-                    "createdAt": "1 month ago",
-                    "username": "amyrobson",
+                    "id": "amy_111",
                     "score": 12,
                     "replies": [{}]
                 }
@@ -27,10 +26,7 @@
             "replies": [],
             "comments": [
                 {
-                    "id": 1,
-                    "content": "OMG!",
-                    "createdAt": "1 week ago",
-                    "username": "timirimi",
+                    "id": "tim_111",
                     "score": 2,
                     "replies": [{}]
                 }
@@ -45,14 +41,21 @@
             "replies": [],
             "comments": [
                 {
-                    "id": 1,
-                    "content": "Ulalala!",
-                    "createdAt": "1 day ago",
-                    "username": "jasontm",
-                    "score": -2,
+                    "id": "jas_111",
+                    "score": 7,
                     "replies": [{}]
                 }
             ]
+        }
+    ],
+    "comments": [
+        {
+            "id": "amy_111",
+            "content": "Hello, I'm a new user! How are you?",
+            "createdAt": "1 day ago",
+            "username": "amyrobson",
+            "score": 12,
+            "replies": [{}]
         }
     ]
 }

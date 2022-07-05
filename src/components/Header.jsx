@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { validateInput, validatePassword } from '../helperFunctions';
-// import DataContext from '../store/DataContext';
+import DataContext from '../store/DataContext';
 import '../index.scss';
 
 const Header = function () {
-    // data
-    // const data = useContext(DataContext);
+    const data = useContext(DataContext);
 
     // states
     const [usernameInput, setUsernameInput] = useState();
@@ -27,6 +26,7 @@ const Header = function () {
 
         if (username && password) {
             setLoggedUser(username);
+            data.logUser(username, password);
         } else {
             setErrorMessage('Username or password is invalid');
         }

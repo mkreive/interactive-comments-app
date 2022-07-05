@@ -2,13 +2,15 @@ import React from 'react';
 import DataContext from './DataContext';
 
 const DataProvider = function (props) {
-    const [loggedUser, setLoggedUser] = React.useState(null);
+    const logUserIn = function (username, password) {
+        console.log(username, password);
+    };
     const addCommentHandler = function (comment) {};
     const deleteCommentHandler = function (comment) {};
 
     const dataContext = {
-        loggedUser,
-        setLoggedUser,
+        // loggedUser,
+        logUser: logUserIn,
         addComment: addCommentHandler,
         deleteComment: deleteCommentHandler,
     };
