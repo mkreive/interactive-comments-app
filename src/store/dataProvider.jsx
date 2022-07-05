@@ -1,7 +1,7 @@
 import React from 'react';
-import DataContext from './dataContext';
+import DataContext from './DataContext';
 
-const dataProvider = function (props) {
+const DataProvider = function (props) {
     const [loggedUser, setLoggedUser] = React.useState(null);
     const addCommentHandler = function (comment) {};
     const deleteCommentHandler = function (comment) {};
@@ -16,4 +16,4 @@ const dataProvider = function (props) {
     return <DataContext.Provider value={dataContext}>{props.children}</DataContext.Provider>;
 };
 
-export default dataProvider;
+export default DataProvider;

@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import DataContext from '../store/DataContext';
 import '../index.scss';
 
 const Header = function () {
+    // data
+    const data = useContext(DataContext);
+
+    // states
+    const [usernameInput, setUsernameInput] = useState();
+    const [passwordInput, setPasswordInput] = useState();
+    const [loggedUser, setLoggedUser] = useState(null);
+
+    // handlers
+    const usernameInputHandler = function () {};
+    const passwordInputHandler = function () {};
+    const loginHandler = function (usernameInput) {};
+    const signupHandler = function (usernameInput, passwordInput) {};
+
     return (
         <header className='header'>
             <div className='header__logo'>
@@ -21,12 +36,16 @@ const Header = function () {
             </nav>
             <div className='signin'>
                 <div className='signin__inputs'>
-                    <input type='text' className='input' placeholder='Username' />
-                    <input type='text' className='input' placeholder='email@email.com' />
+                    <input type='text' className='input' placeholder='Username' onChange={usernameInputHandler} />
+                    <input type='password' className='input' placeholder='password' onChange={passwordInputHandler} />
                 </div>
                 <div className='signin__btns'>
-                    <button className='btn'>Sign Up</button>
-                    <button className='btn'>Log In</button>
+                    <button className='btn' onClick={signupHandler}>
+                        Sign Up
+                    </button>
+                    <button className='btn' onClick={loginHandler}>
+                        Log In
+                    </button>
                 </div>
             </div>
         </header>
