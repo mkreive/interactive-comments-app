@@ -1,7 +1,6 @@
 import React, { useReducer } from 'react';
 import UserContext from './user-context';
 import dataUsers from '../dataUsers';
-import { setLocalStorage } from '../helperFunctions';
 
 const usersData = dataUsers.users;
 const userDefaultState = {
@@ -27,7 +26,6 @@ const dataReducer = function (state, action) {
         const existingUser = usersData.find(
             (user) => user.username === action.username && user.password === action.password
         );
-        setLocalStorage('id', existingUser.id);
         return {
             user: existingUser,
         };
@@ -38,7 +36,6 @@ const dataReducer = function (state, action) {
 };
 
 const DataProvider = function (props) {
-    // const [loggedUser, setLoggedUser] = useState(userDefaultState);
     const [userState, dispatchUserAction] = useReducer(dataReducer, userDefaultState);
 
     const loginHandler = function (username, password) {
@@ -52,7 +49,7 @@ const DataProvider = function (props) {
     };
     const deleteCommentHandler = function (comment) {};
 
-    const dataContext = {
+    const userContext = {
         user: userState,
         login: loginHandler,
         signup: signupHandler,
@@ -67,7 +64,7 @@ const DataProvider = function (props) {
         votePost: () => {},
     };
 
-    return <UserContext.Provider value={dataContext}>{props.children}</UserContext.Provider>;
+    return <UserContext.Provider value={userContext}>{props.children}</UserContext.Provider>;
 };
 
 export default DataProvider;

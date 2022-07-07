@@ -9,7 +9,7 @@ const Header = function () {
     // states
     const [usernameInput, setUsernameInput] = useState();
     const [passwordInput, setPasswordInput] = useState();
-    const [loggedUser, setLoggedUser] = useState({});
+    const [loggedUser, setLoggedUser] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
 
     // handlers
@@ -27,11 +27,13 @@ const Header = function () {
         if (validateInput(usernameInput) && validatePassword(passwordInput)) {
             userCtx.login(username, password);
             setLoggedUser(userCtx.user);
-            console.log(loggedUser);
-            // setLoggedUser(userCtx.user);
         } else {
             setErrorMessage('Username or password is invalid');
         }
+    };
+
+    const logoutHandler = function () {
+        console.log(userCtx.user);
     };
 
     return (
@@ -51,31 +53,49 @@ const Header = function () {
                     <li className='navigation__item'>Contacts</li>
                 </ul>
             </nav>
-            {/* {!loggedUser && ( */}
-            <div className='signin'>
-                <form onSubmit={submitHandler}>
-                    <div className='signin__inputs'>
-                        <input type='text' className='input' placeholder='Username' onChange={usernameInputHandler} />
-                        {errorMessage && <div className='error'>{errorMessage}</div>}
-                        <input
-                            type='password'
-                            className='input'
-                            placeholder='password'
-                            onChange={passwordInputHandler}
-                        />
-                        {errorMessage && <div className='error'>{errorMessage}</div>}
+            {!loggedUser && (
+                <div className='signin'>
+                    <form onSubmit={submitHandler}>
+                        <div className='signin__inputs'>
+                            <input
+                                type='text'
+                                className='input'
+                                placeholder='Username'
+                                onChange={usernameInputHandler}
+                            />
+                            {errorMessage && <div className='error'>{errorMessage}</div>}
+                            <input
+                                type='password'
+                                className='input'
+                                placeholder='password'
+                                onChange={passwordInputHandler}
+                            />
+                            {errorMessage && <div className='error'>{errorMessage}</div>}
+                        </div>
+                        <div className='signin__btns'>
+                            <button className='btn' type='submit'>
+                                Log In
+                            </button>
+                            <button className='btn' type='submit'>
+                                Sign Up
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            )}
+            {loggedUser && (
+                <div className='user-card'>
+                    <div className='user-card__header'>
+                        <img className='user-card__avatar' src={loggedUser.image} alt='avatar' />
+                        <div className='user-card__name'>Hello, {loggedUser.name}</div>
                     </div>
                     <div className='signin__btns'>
-                        <button className='btn' type='submit'>
-                            Log In
-                        </button>
-                        <button className='btn' type='submit'>
-                            Sign Up
+                        <button className='btn' onClick={logoutHandler}>
+                            Log Out
                         </button>
                     </div>
-                </form>
-            </div>
-            {/* )} */}
+                </div>
+            )}
         </header>
     );
 };
