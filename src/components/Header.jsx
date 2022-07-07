@@ -11,6 +11,7 @@ const Header = function () {
     const [passwordInput, setPasswordInput] = useState();
     const [loggedUser, setLoggedUser] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
+    const [logged, setLogged] = useState(false);
 
     // handlers
     const usernameInputHandler = function (event) {
@@ -26,14 +27,15 @@ const Header = function () {
 
         if (validateInput(usernameInput) && validatePassword(passwordInput)) {
             userCtx.login(username, password);
-            setLoggedUser(userCtx.user);
         } else {
             setErrorMessage('Username or password is invalid');
         }
-    };
 
-    const logoutHandler = function () {
-        console.log(userCtx.user);
+        if (userCtx.user.user.username) {
+            setLogged(true);
+            setLoggedUser(userCtx.user.user);
+            console.log(userCtx.user.user);
+        }
     };
 
     return (
@@ -53,7 +55,7 @@ const Header = function () {
                     <li className='navigation__item'>Contacts</li>
                 </ul>
             </nav>
-            {!loggedUser && (
+            {!logged && (
                 <div className='signin'>
                     <form onSubmit={submitHandler}>
                         <div className='signin__inputs'>
@@ -83,17 +85,18 @@ const Header = function () {
                     </form>
                 </div>
             )}
-            {loggedUser && (
-                <div className='user-card'>
-                    <div className='user-card__header'>
-                        <img className='user-card__avatar' src={loggedUser.image} alt='avatar' />
-                        <div className='user-card__name'>Hello, {loggedUser.name}</div>
+            {logged && loggedUser && (
+                <div className='signin__logged'>
+                    <div className='signin__logged__header'>
+                        <img className='images__photo' src={loggedUser.image} alt='avatar' />
+                        <span className='header-small-colored'>Hi, {loggedUser.username}!</span>
                     </div>
-                    <div className='signin__btns'>
-                        <button className='btn' onClick={logoutHandler}>
-                            Log Out
-                        </button>
-                    </div>
+
+                    <ul className='navigation'>
+                        <li className='navigation__item'>My messages</li>
+                        <li className='navigation__item'>My topics</li>
+                        <li className='navigation__item'>My profile</li>
+                    </ul>
                 </div>
             )}
         </header>
