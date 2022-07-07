@@ -1,5 +1,5 @@
 import React from 'react';
-import DataProvider from './store/DataProvider';
+import DataProvider from './store/UserProvider';
 import Header from './components/Header';
 import Main from './components/Main';
 

@@ -1,15 +1,15 @@
 import React, { useState, useContext } from 'react';
 import { validateInput, validatePassword } from '../helperFunctions';
-import DataContext from '../store/DataContext';
+import UserContext from '../store/user-context';
 import '../index.scss';
 
 const Header = function () {
-    const userCtx = useContext(DataContext);
+    const userCtx = useContext(UserContext);
 
     // states
     const [usernameInput, setUsernameInput] = useState();
     const [passwordInput, setPasswordInput] = useState();
-    const [loggedUser, setLoggedUser] = useState(null);
+    const [loggedUser, setLoggedUser] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
 
     // handlers
@@ -25,12 +25,13 @@ const Header = function () {
         const password = passwordInput;
 
         if (validateInput(usernameInput) && validatePassword(passwordInput)) {
-            const user = userCtx.logUser(username, password);
-            setLoggedUser(user);
+            userCtx.login(username, password);
+            setLoggedUser(userCtx.user);
+            console.log(loggedUser);
+            // setLoggedUser(userCtx.user);
         } else {
             setErrorMessage('Username or password is invalid');
         }
-        console.log(userCtx);
     };
 
     return (
@@ -50,36 +51,31 @@ const Header = function () {
                     <li className='navigation__item'>Contacts</li>
                 </ul>
             </nav>
-            {!loggedUser && (
-                <div className='signin'>
-                    <form onSubmit={submitHandler}>
-                        <div className='signin__inputs'>
-                            <input
-                                type='text'
-                                className='input'
-                                placeholder='Username'
-                                onChange={usernameInputHandler}
-                            />
-                            {errorMessage && <div className='error'>{errorMessage}</div>}
-                            <input
-                                type='password'
-                                className='input'
-                                placeholder='password'
-                                onChange={passwordInputHandler}
-                            />
-                            {errorMessage && <div className='error'>{errorMessage}</div>}
-                        </div>
-                        <div className='signin__btns'>
-                            <button className='btn' type='submit'>
-                                Log In
-                            </button>
-                            <button className='btn' type='submit'>
-                                Sign Up
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            )}
+            {/* {!loggedUser && ( */}
+            <div className='signin'>
+                <form onSubmit={submitHandler}>
+                    <div className='signin__inputs'>
+                        <input type='text' className='input' placeholder='Username' onChange={usernameInputHandler} />
+                        {errorMessage && <div className='error'>{errorMessage}</div>}
+                        <input
+                            type='password'
+                            className='input'
+                            placeholder='password'
+                            onChange={passwordInputHandler}
+                        />
+                        {errorMessage && <div className='error'>{errorMessage}</div>}
+                    </div>
+                    <div className='signin__btns'>
+                        <button className='btn' type='submit'>
+                            Log In
+                        </button>
+                        <button className='btn' type='submit'>
+                            Sign Up
+                        </button>
+                    </div>
+                </form>
+            </div>
+            {/* )} */}
         </header>
     );
 };
