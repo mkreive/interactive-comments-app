@@ -33,7 +33,7 @@ const dataReducer = function (state, action) {
     if (action.type === 'SIGNUP') {
         console.log('signup');
     }
-    if (action.type === 'FILTER') {
+    if (action.type === 'FILTER_COMMENTS') {
         const filteredComments = commentsData.filter((comment) => comment.topic === action.topic);
         return filteredComments;
     }
@@ -51,7 +51,7 @@ const DataProvider = function (props) {
     };
 
     const filterCommentsHandler = function (topic) {
-        dispatchCommentAction({ type: 'FILTER', topic });
+        dispatchCommentAction({ type: 'FILTER_COMMENTS', topic });
     };
 
     const addCommentHandler = function (comment) {
@@ -68,6 +68,7 @@ const DataProvider = function (props) {
 
         comments: commentState,
         filterComments: filterCommentsHandler,
+
         addComment: addCommentHandler,
         deleteComment: deleteCommentHandler,
         voteComment: () => {},

@@ -46,6 +46,7 @@
             "content": "Hello, I'm a new user! How are you?",
             "createdAt": "1 day ago",
             "username": "amyrobson",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
             "score": 12,
             "parentId": null
         },
@@ -55,8 +56,19 @@
             "content": "I want kids!",
             "createdAt": "2 days ago",
             "username": "jasontm",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
             "score": 2,
             "parentId": null
+        },
+        {
+            "id": "jas_444",
+            "topic": "family",
+            "content": "Hello, me too!",
+            "createdAt": "1 day ago",
+            "username": "jasontm",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
+            "score": 4,
+            "parentId": "amy_111"
         },
         {
             "id": "amy_444",
@@ -64,6 +76,7 @@
             "content": "I hate kids...",
             "createdAt": "1 day ago",
             "username": "amyrobson",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
             "score": -3,
             "parentId": "jas_111"
         },
@@ -74,6 +87,7 @@
             "content": "I love dogs",
             "createdAt": "1 month ago",
             "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
             "score": 1,
             "parentId": null
         },
@@ -83,6 +97,7 @@
             "content": "Which computer is the best?",
             "createdAt": "7 days ago",
             "username": "amyrobson",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
             "score": 7,
             "parentId": null
         },
@@ -92,6 +107,8 @@
             "content": "What is your favorite color?",
             "createdAt": "10 days ago",
             "username": "amyrobson",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
+
             "score": 44,
             "parentId": null
         },
@@ -101,6 +118,7 @@
             "content": "Red",
             "createdAt": "9 days ago",
             "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
             "score": 4,
             "parentId": "amy_333"
         },
@@ -110,6 +128,7 @@
             "content": "Where to travel fot honeymoon?",
             "createdAt": "1 month ago",
             "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
             "score": 5,
             "parentId": null
         },
@@ -119,6 +138,7 @@
             "content": "My headache is getting worse and worse",
             "createdAt": "2 months ago",
             "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
             "score": 9,
             "parentId": null
         },
@@ -128,6 +148,7 @@
             "content": "Good for you!",
             "createdAt": "1 month1 ago",
             "username": "jasontm",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
             "score": 2,
             "parentId": "tim_111"
         }

@@ -1,15 +1,16 @@
 import React, { useContext } from 'react';
 import '../index.scss';
 // import Reply from './Reply';
-// import Comment from './Comment';
+import Comment from './Comment';
 import UserContext from '../store/user-context';
 
 const Main = function () {
     const context = useContext(UserContext);
+    const comments = context.comments;
 
     const topicSelectHandler = function (event) {
-        console.log(event.target.innerText);
-        console.log(context.comments);
+        const selectedTopic = event.target.innerText;
+        context.filterComments(selectedTopic);
     };
 
     return (
@@ -43,12 +44,10 @@ const Main = function () {
                     </div>
                 </div>
             </header>
-            {/* {comments &&
-                comments.map((comment) => (
-                    <div key={comment.id} className='main__body'>
-                        {comment.content}
-                    </div>
-                ))} */}
+            {comments &&
+                comments
+                    .filter((comment) => !comment.parentId)
+                    .map((comment) => <Comment key={comment.id} comment={comment} />)}
         </main>
     );
 };
