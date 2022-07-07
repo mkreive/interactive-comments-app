@@ -4,7 +4,7 @@ import DataContext from '../store/DataContext';
 import '../index.scss';
 
 const Header = function () {
-    const data = useContext(DataContext);
+    const userCtx = useContext(DataContext);
 
     // states
     const [usernameInput, setUsernameInput] = useState();
@@ -25,11 +25,12 @@ const Header = function () {
         const password = passwordInput;
 
         if (validateInput(usernameInput) && validatePassword(passwordInput)) {
-            setLoggedUser(username);
-            data.logUser(username, password);
+            const user = userCtx.logUser(username, password);
+            setLoggedUser(user);
         } else {
             setErrorMessage('Username or password is invalid');
         }
+        console.log(userCtx);
     };
 
     return (

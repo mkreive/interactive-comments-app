@@ -4,7 +4,7 @@
     "users": [
         {
             "id": "amyrobson111",
-            "password": "111",
+            "password": "111amy",
             "name": "Amy Robertson",
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
             "username": "amyrobson",
@@ -19,7 +19,7 @@
         },
         {
             "id": "timirimi222",
-            "password": "222",
+            "password": "222tim",
             "name": "Tim Richardson",
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
             "username": "timirimi",
@@ -34,7 +34,7 @@
         },
         {
             "id": "jasontm333",
-            "password": "333",
+            "password": "333jason",
             "name": "Jason Matthews",
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
             "username": "jasontm",

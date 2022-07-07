@@ -1,41 +1,26 @@
 import React, { useReducer } from 'react';
 import DataContext from './DataContext';
+import dataUsers from '../dataUsers';
 
-const userDefaultState = {
-    id: '',
-    password: '',
-    name: '',
-    image: '',
-    username: '',
-    replies: [
-        {
-            repliedToId: '',
-            id: '',
-            score: 0,
-            replies: [{}],
-        },
-    ],
-    comments: [
-        {
-            id: '',
-            score: 0,
-            replies: [{}],
-        },
-    ],
-};
+const usersData = dataUsers.users;
+
+const userDefaultState = { user: {} };
+
 const dataReducer = function (state, action) {
-    return userDefaultState;
+    if (action.type === 'LOGIN') {
+        const user = usersData.find((user) => user.username === action.username && user.password === action.password);
+
+        return {
+            user,
+        };
+    }
 };
 
 const DataProvider = function (props) {
     const [userState, dispatchUserAction] = useReducer(dataReducer, userDefaultState);
 
     const logUserIn = function (username, password) {
-        dispatchUserAction({ type: 'LOG_USER_IN', username, password });
-        const user = data.users.find((user) => user.username === username);
-        if (user && user.password === password) {
-        } else {
-        }
+        dispatchUserAction({ type: 'LOGIN', username, password });
     };
     const addCommentHandler = function (comment) {};
     const deleteCommentHandler = function (comment) {};
