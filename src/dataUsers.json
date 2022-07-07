@@ -9,11 +9,7 @@
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
             "username": "amyrobson",
             "replies": [],
-            "comments": [
-                {
-                    "id": "amy_111"
-                }
-            ]
+            "comments": ["amy_111"]
         },
         {
             "id": "timirimi222",
@@ -42,6 +38,7 @@
             ]
         }
     ],
+
     "comments": [
         {
             "id": "amy_111",
@@ -50,7 +47,7 @@
             "createdAt": "1 day ago",
             "username": "amyrobson",
             "score": 12,
-            "replies": [{}]
+            "parentId": null
         },
         {
             "id": "jas_111",
@@ -59,43 +56,62 @@
             "createdAt": "2 days ago",
             "username": "jasontm",
             "score": 2,
-            "replies": [{}]
+            "parentId": null
         },
         {
-            "id": "tim_111",
+            "id": "amy_444",
+            "topic": "family",
+            "content": "I hate kids...",
+            "createdAt": "1 day ago",
+            "username": "amyrobson",
+            "score": -3,
+            "parentId": "jas_111"
+        },
+
+        {
+            "id": "tim_333",
             "topic": "animals",
             "content": "I love dogs",
             "createdAt": "1 month ago",
             "username": "timirimi",
             "score": 1,
-            "replies": [{}]
+            "parentId": null
         },
         {
-            "id": "amy_111",
+            "id": "amy_222",
             "topic": "tech",
             "content": "Which computer is the best?",
             "createdAt": "7 days ago",
             "username": "amyrobson",
             "score": 7,
-            "replies": [{}]
+            "parentId": null
         },
         {
-            "id": "amy_111",
+            "id": "amy_333",
             "topic": "life",
             "content": "What is your favorite color?",
             "createdAt": "10 days ago",
             "username": "amyrobson",
             "score": 44,
-            "replies": [{}]
+            "parentId": null
         },
         {
-            "id": "tim_111",
+            "id": "tim_444",
+            "topic": "life",
+            "content": "Red",
+            "createdAt": "9 days ago",
+            "username": "timirimi",
+            "score": 4,
+            "parentId": "amy_333"
+        },
+        {
+            "id": "tim_222",
             "topic": "travel",
             "content": "Where to travel fot honeymoon?",
             "createdAt": "1 month ago",
             "username": "timirimi",
             "score": 5,
-            "replies": [{}]
+            "parentId": null
         },
         {
             "id": "tim_111",
@@ -104,7 +120,16 @@
             "createdAt": "2 months ago",
             "username": "timirimi",
             "score": 9,
-            "replies": [{}]
+            "parentId": null
+        },
+        {
+            "id": "jas_222",
+            "topic": "health",
+            "content": "Good for you!",
+            "createdAt": "1 month1 ago",
+            "username": "jasontm",
+            "score": 2,
+            "parentId": "tim_111"
         }
     ]
 }

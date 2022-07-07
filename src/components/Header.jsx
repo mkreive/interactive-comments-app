@@ -9,9 +9,9 @@ const Header = function () {
     // states
     const [usernameInput, setUsernameInput] = useState();
     const [passwordInput, setPasswordInput] = useState();
-    const [loggedUser, setLoggedUser] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
-    const [logged, setLogged] = useState(false);
+    const logged = userCtx.user.username;
+    const loggedUser = userCtx.user;
 
     // handlers
     const usernameInputHandler = function (event) {
@@ -29,11 +29,6 @@ const Header = function () {
             userCtx.login(username, password);
         } else {
             setErrorMessage('Username or password is invalid');
-        }
-
-        if (userCtx.user.username) {
-            setLogged(true);
-            setLoggedUser(userCtx.user);
         }
     };
 
@@ -84,7 +79,7 @@ const Header = function () {
                     </form>
                 </div>
             )}
-            {logged && loggedUser && (
+            {logged && (
                 <div className='signin__logged'>
                     <div className='signin__logged__header'>
                         <img className='images__photo' src={loggedUser.image} alt='avatar' />
