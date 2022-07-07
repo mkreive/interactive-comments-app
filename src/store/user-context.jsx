@@ -5,6 +5,8 @@ const UserContext = React.createContext({
     login: () => {},
     signup: () => {},
 
+    comments: [],
+    filterComments: () => {},
     addComment: () => {},
     deleteComment: () => {},
     editComment: () => {},

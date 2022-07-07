@@ -31,10 +31,9 @@ const Header = function () {
             setErrorMessage('Username or password is invalid');
         }
 
-        if (userCtx.user.user.username) {
+        if (userCtx.user.username) {
             setLogged(true);
-            setLoggedUser(userCtx.user.user);
-            console.log(userCtx.user.user);
+            setLoggedUser(userCtx.user);
         }
     };
 

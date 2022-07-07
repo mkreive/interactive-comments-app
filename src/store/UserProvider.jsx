@@ -3,40 +3,45 @@ import UserContext from './user-context';
 import dataUsers from '../dataUsers';
 
 const usersData = dataUsers.users;
+const commentsData = dataUsers.comments;
+
 const userDefaultState = {
-    user: {
-        id: '',
-        password: '',
-        name: '',
-        image: '',
-        username: '',
-        replies: [],
-        comments: [
-            {
-                id: '',
-                score: 0,
-                replies: [{}],
-            },
-        ],
-    },
+    id: '',
+    password: '',
+    name: '',
+    image: '',
+    username: '',
+    replies: [],
+    comments: [
+        {
+            id: '',
+            score: 0,
+            replies: [{}],
+        },
+    ],
 };
+
+const defaultCommentState = [];
 
 const dataReducer = function (state, action) {
     if (action.type === 'LOGIN') {
         const existingUser = usersData.find(
             (user) => user.username === action.username && user.password === action.password
         );
-        return {
-            user: existingUser,
-        };
+        return existingUser;
     }
     if (action.type === 'SIGNUP') {
         console.log('signup');
+    }
+    if (action.type === 'FILTER') {
+        const filteredComments = commentsData.filter((comment) => comment.topic === action.topic);
+        return filteredComments;
     }
 };
 
 const DataProvider = function (props) {
     const [userState, dispatchUserAction] = useReducer(dataReducer, userDefaultState);
+    const [commentState, dispatchCommentAction] = useReducer(dataReducer, defaultCommentState);
 
     const loginHandler = function (username, password) {
         dispatchUserAction({ type: 'LOGIN', username, password });
@@ -44,16 +49,25 @@ const DataProvider = function (props) {
     const signupHandler = function (username, password) {
         dispatchUserAction({ type: 'SIGNUP', username, password });
     };
-    const addCommentHandler = function (comment) {
-        dispatchUserAction({ type: 'ADD_COMMENT', comment });
+
+    const filterCommentsHandler = function (topic) {
+        dispatchCommentAction({ type: 'FILTER', topic });
     };
-    const deleteCommentHandler = function (comment) {};
+
+    const addCommentHandler = function (comment) {
+        dispatchCommentAction({ type: 'ADD_COMMENT', comment });
+    };
+    const deleteCommentHandler = function (comment) {
+        dispatchCommentAction({ type: 'DELETE_COMMENT', comment });
+    };
 
     const userContext = {
         user: userState,
         login: loginHandler,
         signup: signupHandler,
 
+        comments: commentState,
+        filterComments: filterCommentsHandler,
         addComment: addCommentHandler,
         deleteComment: deleteCommentHandler,
         voteComment: () => {},

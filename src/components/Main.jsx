@@ -1,33 +1,54 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../index.scss';
-import Reply from './Reply';
-import Comment from './Comment';
+// import Reply from './Reply';
+// import Comment from './Comment';
+import UserContext from '../store/user-context';
 
 const Main = function () {
+    const context = useContext(UserContext);
+
+    const topicSelectHandler = function (event) {
+        console.log(event.target.innerText);
+        console.log(context.comments);
+    };
+
     return (
         <main className='main'>
             <header className='main__header'>
                 <h1 className='header-huge'>Topics</h1>
                 <div className='topics'>
-                    <div className='topics__btn'>Family</div>
-                    <div className='topics__btn'>Life</div>
-                    <div className='topics__btn'>Hobbies</div>
-                    <div className='topics__btn'>Travel</div>
-                    <div className='topics__btn'>Health</div>
-                    <div className='topics__btn'>food</div>
-                    <div className='topics__btn selected'>Tech</div>
-                    <div className='topics__btn'>animals</div>
-                    <div className='topics__btn'>plants</div>
-                    <div className='topics__btn'>people</div>
-                    <div className='topics__btn'>politics</div>
-                    <div className='topics__btn'>religion</div>
+                    <div className='topics__btn' onClick={topicSelectHandler}>
+                        Hobbies
+                    </div>
+                    <div className='topics__btn' onClick={topicSelectHandler}>
+                        Travel
+                    </div>
+                    <div className='topics__btn' onClick={topicSelectHandler}>
+                        Health
+                    </div>
+                    <div className='topics__btn' onClick={topicSelectHandler}>
+                        food
+                    </div>
+                    <div className='topics__btn' onClick={topicSelectHandler}>
+                        Tech
+                    </div>
+                    <div className='topics__btn' onClick={topicSelectHandler}>
+                        animals
+                    </div>
+                    <div className='topics__btn' onClick={topicSelectHandler}>
+                        family
+                    </div>
+                    <div className='topics__btn' onClick={topicSelectHandler}>
+                        life
+                    </div>
                 </div>
             </header>
-            <div className='main__body'>
-                <Comment></Comment>
-                <Reply></Reply>
-                <Comment></Comment>
-            </div>
+            {/* {comments &&
+                comments.map((comment) => (
+                    <div key={comment.id} className='main__body'>
+                        {comment.content}
+                    </div>
+                ))} */}
         </main>
     );
 };

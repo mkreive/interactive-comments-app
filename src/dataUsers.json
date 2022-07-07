@@ -11,9 +11,7 @@
             "replies": [],
             "comments": [
                 {
-                    "id": "amy_111",
-                    "score": 12,
-                    "replies": [{}]
+                    "id": "amy_111"
                 }
             ]
         },
@@ -26,9 +24,7 @@
             "replies": [],
             "comments": [
                 {
-                    "id": "tim_111",
-                    "score": 2,
-                    "replies": [{}]
+                    "id": "tim_111"
                 }
             ]
         },
@@ -41,9 +37,7 @@
             "replies": [],
             "comments": [
                 {
-                    "id": "jas_111",
-                    "score": 7,
-                    "replies": [{}]
+                    "id": "jas_111"
                 }
             ]
         }
@@ -51,10 +45,65 @@
     "comments": [
         {
             "id": "amy_111",
+            "topic": "family",
             "content": "Hello, I'm a new user! How are you?",
             "createdAt": "1 day ago",
             "username": "amyrobson",
             "score": 12,
+            "replies": [{}]
+        },
+        {
+            "id": "jas_111",
+            "topic": "family",
+            "content": "I want kids!",
+            "createdAt": "2 days ago",
+            "username": "jasontm",
+            "score": 2,
+            "replies": [{}]
+        },
+        {
+            "id": "tim_111",
+            "topic": "animals",
+            "content": "I love dogs",
+            "createdAt": "1 month ago",
+            "username": "timirimi",
+            "score": 1,
+            "replies": [{}]
+        },
+        {
+            "id": "amy_111",
+            "topic": "tech",
+            "content": "Which computer is the best?",
+            "createdAt": "7 days ago",
+            "username": "amyrobson",
+            "score": 7,
+            "replies": [{}]
+        },
+        {
+            "id": "amy_111",
+            "topic": "life",
+            "content": "What is your favorite color?",
+            "createdAt": "10 days ago",
+            "username": "amyrobson",
+            "score": 44,
+            "replies": [{}]
+        },
+        {
+            "id": "tim_111",
+            "topic": "travel",
+            "content": "Where to travel fot honeymoon?",
+            "createdAt": "1 month ago",
+            "username": "timirimi",
+            "score": 5,
+            "replies": [{}]
+        },
+        {
+            "id": "tim_111",
+            "topic": "health",
+            "content": "My headache is getting worse and worse",
+            "createdAt": "2 months ago",
+            "username": "timirimi",
+            "score": 9,
             "replies": [{}]
         }
     ]
