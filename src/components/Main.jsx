@@ -14,6 +14,11 @@ const Main = function () {
     };
     const parentComments = comments.filter((comment) => comment.parentId === null);
 
+    const getReplies = function (commentId) {
+        const replies = comments.filter((comment) => comment.parentId === commentId);
+        return replies;
+    };
+
     // const renderComments = function (comments, id) {
     //     comments
     //         .filter((comment) => comment.parentId === id)
@@ -59,7 +64,7 @@ const Main = function () {
                 </div>
             </header>
             {parentComments.map((comment) => (
-                <Comment key={comment.id} comment={comment}></Comment>
+                <Comment key={comment.id} comment={comment} replies={getReplies(comment.id)}></Comment>
             ))}
         </main>
     );
