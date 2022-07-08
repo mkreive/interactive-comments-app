@@ -12,15 +12,20 @@ const Main = function () {
         const selectedTopic = event.target.innerText;
         context.filterComments(selectedTopic);
     };
+    const parentComments = comments.filter((comment) => comment.parentId === null);
 
-    const saka = function (comments, id) {
-        comments
-            .filter((comment) => comment.parentId === id)
-            .forEach((element) => {
-                <Comment key={element.id} comment={element}></Comment>;
-                saka(comments, element.id);
-            });
-    };
+    // const renderComments = function (comments, id) {
+    //     comments
+    //         .filter((comment) => comment.parentId === id)
+    //         .map((comment) => {
+    //             return (
+    //                 <div key={comment.id}>
+    //                     <Comment key={comment.id} comment={comment}></Comment>
+    //                     {renderComments(comments, comment.id)}
+    //                 </div>
+    //             );
+    //         });
+    // };
 
     return (
         <main className='main'>
@@ -53,7 +58,9 @@ const Main = function () {
                     </div>
                 </div>
             </header>
-            {comments && saka(comments, null)}
+            {parentComments.map((comment) => (
+                <Comment key={comment.id} comment={comment}></Comment>
+            ))}
         </main>
     );
 };
