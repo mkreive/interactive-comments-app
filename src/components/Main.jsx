@@ -13,6 +13,15 @@ const Main = function () {
         context.filterComments(selectedTopic);
     };
 
+    const saka = function (comments, id) {
+        comments
+            .filter((comment) => comment.parentId === id)
+            .forEach((element) => {
+                <Comment key={element.id} comment={element}></Comment>;
+                saka(comments, element.id);
+            });
+    };
+
     return (
         <main className='main'>
             <header className='main__header'>
@@ -44,10 +53,7 @@ const Main = function () {
                     </div>
                 </div>
             </header>
-            {comments &&
-                comments
-                    .filter((comment) => !comment.parentId)
-                    .map((comment) => <Comment key={comment.id} comment={comment} />)}
+            {comments && saka(comments, null)}
         </main>
     );
 };

@@ -123,6 +123,27 @@
             "parentId": "amy_333"
         },
         {
+            "id": "tim_777",
+            "topic": "life",
+            "content": "Blue",
+            "createdAt": "9 days ago",
+            "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
+            "score": 4,
+            "parentId": "amy_333"
+        },
+        {
+            "id": "amy_666",
+            "topic": "life",
+            "content": "Blablabla",
+            "createdAt": "10 days ago",
+            "username": "amyrobson",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
+
+            "score": 44,
+            "parentId": "tim_444"
+        },
+        {
             "id": "tim_222",
             "topic": "travel",
             "content": "Where to travel fot honeymoon?",
