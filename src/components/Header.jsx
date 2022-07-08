@@ -1,17 +1,25 @@
 import React, { useState, useContext } from 'react';
-import { validateInput, validatePassword } from '../helperFunctions';
+import { getLocalStorage, validateInput, validatePassword } from '../helperFunctions';
 import UserContext from '../store/user-context';
 import '../index.scss';
+import dataUsers from '../dataUsers.json';
 
 const Header = function () {
+    const usersData = dataUsers.users;
     const userCtx = useContext(UserContext);
+    const logged = userCtx.user.username;
+    const loggedUser = userCtx.user;
+
+    const userInLocalStorage = getLocalStorage('userId');
+    if (userInLocalStorage) {
+        const [userInDatabase] = usersData.filter((user) => user.id === userInLocalStorage);
+        userCtx.login(userInDatabase.username, userInDatabase.password);
+    }
 
     // states
     const [usernameInput, setUsernameInput] = useState();
     const [passwordInput, setPasswordInput] = useState();
     const [errorMessage, setErrorMessage] = useState('');
-    const logged = userCtx.user.username;
-    const loggedUser = userCtx.user;
 
     // handlers
     const usernameInputHandler = function (event) {

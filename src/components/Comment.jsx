@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import '../index.scss';
 import UserContext from '../store/user-context';
+import Reply from './Reply';
 
 const Comment = function (props) {
+    const [replyComment, setReplyComment] = useState(false);
     const comment = props.comment;
     const replies = props.replies;
 
@@ -12,6 +14,10 @@ const Comment = function (props) {
     const getReplies = function (commentId) {
         const replies = comments.filter((comment) => comment.parentId === commentId);
         return replies;
+    };
+
+    const onReplyHandler = function () {
+        setReplyComment(true);
     };
 
     return (
@@ -28,12 +34,15 @@ const Comment = function (props) {
                             <img className='images__photo' src={`${comment.avatar}`} alt='user-photo' />
                             <h3 className='header-small'>{comment.username}</h3>
                             <span className='header-small-gray'>{comment.createdAt}</span>
-                            <div className='header-reply'>Reply</div>
+                            <div className='header-reply' onClick={onReplyHandler}>
+                                Reply
+                            </div>
                         </header>
                         <div className='text'>{comment.content}</div>
                     </article>
                 </div>
             </div>
+            {replyComment && <Reply />}
             {replies.length > 0 && (
                 <div className='replies'>
                     {replies.map((reply) => (

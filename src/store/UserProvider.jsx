@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import UserContext from './user-context';
 import dataUsers from '../dataUsers';
+import { setLocalStorage } from '../helperFunctions';
 
 const usersData = dataUsers.users;
 const commentsData = dataUsers.comments;
@@ -28,6 +29,9 @@ const dataReducer = function (state, action) {
         const existingUser = usersData.find(
             (user) => user.username === action.username && user.password === action.password
         );
+        if (existingUser) {
+            setLocalStorage('userId', existingUser.id);
+        }
         return existingUser;
     }
     if (action.type === 'SIGNUP') {

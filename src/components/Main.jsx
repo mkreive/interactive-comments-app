@@ -19,19 +19,6 @@ const Main = function () {
         return replies;
     };
 
-    // const renderComments = function (comments, id) {
-    //     comments
-    //         .filter((comment) => comment.parentId === id)
-    //         .map((comment) => {
-    //             return (
-    //                 <div key={comment.id}>
-    //                     <Comment key={comment.id} comment={comment}></Comment>
-    //                     {renderComments(comments, comment.id)}
-    //                 </div>
-    //             );
-    //         });
-    // };
-
     return (
         <main className='main'>
             <header className='main__header'>
