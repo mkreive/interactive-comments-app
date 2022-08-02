@@ -33,6 +33,9 @@ const Comment = function (props) {
                         <header className='comment__main__header'>
                             <img className='images__photo' src={`${comment.avatar}`} alt='user-photo' />
                             <h3 className='header-small'>{comment.username}</h3>
+                            {comment.username === context.user.username && (
+                                <span className='header-small-colored'>you</span>
+                            )}
                             <span className='header-small-gray'>{comment.createdAt}</span>
                             <div className='header-reply' onClick={onReplyHandler}>
                                 Reply

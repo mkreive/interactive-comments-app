@@ -2,25 +2,23 @@ import React, { useState, useContext } from 'react';
 import { getLocalStorage, removeLocalStorage, validateInput, validatePassword } from '../helperFunctions';
 import UserContext from '../store/user-context';
 import '../index.scss';
-import dataUsers from '../dataUsers.json';
 
 const Header = function () {
-    const usersData = dataUsers.users;
     const userCtx = useContext(UserContext);
-    // const logged = userCtx.user.username;
     const loggedUser = userCtx.user;
-
-    const userInLocalStorage = getLocalStorage('userId');
-    if (userInLocalStorage) {
-        const [userInDatabase] = usersData.filter((user) => user.id === userInLocalStorage);
-        userCtx.login(userInDatabase.username, userInDatabase.password);
-    }
 
     // states
     const [isLogged, setIsLogged] = useState(false);
     const [usernameInput, setUsernameInput] = useState();
     const [passwordInput, setPasswordInput] = useState();
     const [errorMessage, setErrorMessage] = useState('');
+
+    // functions
+    const userInLocalStorage = getLocalStorage('userId');
+    if (userInLocalStorage) {
+        const loggedUser = userCtx.logged(userInLocalStorage);
+        console.log(loggedUser);
+    }
 
     // handlers
     const usernameInputHandler = function (event) {
@@ -38,7 +36,7 @@ const Header = function () {
             userCtx.login(username, password);
             setIsLogged(true);
         } else {
-            setErrorMessage('Username or password is invalid');
+            setErrorMessage('Username and/or password is invalid');
         }
     };
 

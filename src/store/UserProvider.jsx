@@ -25,12 +25,16 @@ const userDefaultState = {
 const defaultCommentState = [];
 
 const dataReducer = function (state, action) {
+    if (action.type === 'LOGGED') {
+        return usersData.find((user) => user.username === action.username);
+    }
+
     if (action.type === 'LOGIN') {
         const existingUser = usersData.find(
             (user) => user.username === action.username && user.password === action.password
         );
         if (existingUser) {
-            setLocalStorage('userId', existingUser.id);
+            setLocalStorage('userId', existingUser.username);
         }
         return existingUser;
     }
@@ -46,6 +50,10 @@ const dataReducer = function (state, action) {
 const DataProvider = function (props) {
     const [userState, dispatchUserAction] = useReducer(dataReducer, userDefaultState);
     const [commentState, dispatchCommentAction] = useReducer(dataReducer, defaultCommentState);
+
+    const loggedUserHandler = function (username) {
+        dispatchUserAction({ type: 'LOGGED', username });
+    };
 
     const loginHandler = function (username, password) {
         dispatchUserAction({ type: 'LOGIN', username, password });
@@ -66,6 +74,7 @@ const DataProvider = function (props) {
     };
 
     const userContext = {
+        logged: loggedUserHandler,
         user: userState,
         login: loginHandler,
         signup: signupHandler,
