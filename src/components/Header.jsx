@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { getLocalStorage, validateInput, validatePassword } from '../helperFunctions';
+import { getLocalStorage, removeLocalStorage, validateInput, validatePassword } from '../helperFunctions';
 import UserContext from '../store/user-context';
 import '../index.scss';
 import dataUsers from '../dataUsers.json';
@@ -7,7 +7,7 @@ import dataUsers from '../dataUsers.json';
 const Header = function () {
     const usersData = dataUsers.users;
     const userCtx = useContext(UserContext);
-    const logged = userCtx.user.username;
+    // const logged = userCtx.user.username;
     const loggedUser = userCtx.user;
 
     const userInLocalStorage = getLocalStorage('userId');
@@ -17,6 +17,7 @@ const Header = function () {
     }
 
     // states
+    const [isLogged, setIsLogged] = useState(false);
     const [usernameInput, setUsernameInput] = useState();
     const [passwordInput, setPasswordInput] = useState();
     const [errorMessage, setErrorMessage] = useState('');
@@ -35,9 +36,16 @@ const Header = function () {
 
         if (validateInput(usernameInput) && validatePassword(passwordInput)) {
             userCtx.login(username, password);
+            setIsLogged(true);
         } else {
             setErrorMessage('Username or password is invalid');
         }
+    };
+
+    const logoutHandler = function () {
+        const userInStorage = getLocalStorage('userId');
+        removeLocalStorage('userId', userInStorage);
+        setIsLogged(false);
     };
 
     return (
@@ -57,7 +65,7 @@ const Header = function () {
                     <li className='navigation__item'>Contacts</li>
                 </ul>
             </nav>
-            {!logged && (
+            {!isLogged && (
                 <div className='signin'>
                     <form onSubmit={submitHandler}>
                         <div className='signin__inputs'>
@@ -87,7 +95,7 @@ const Header = function () {
                     </form>
                 </div>
             )}
-            {logged && (
+            {isLogged && (
                 <div className='signin__logged'>
                     <div className='signin__logged__header'>
                         <img className='images__photo' src={loggedUser.image} alt='avatar' />
@@ -95,9 +103,11 @@ const Header = function () {
                     </div>
 
                     <ul className='navigation'>
-                        <li className='navigation__item'>My messages</li>
                         <li className='navigation__item'>My topics</li>
                         <li className='navigation__item'>My profile</li>
+                        <li className='navigation__item' onClick={logoutHandler}>
+                            Log Out
+                        </li>
                     </ul>
                 </div>
             )}
