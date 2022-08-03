@@ -14,6 +14,7 @@ export const removeLocalStorage = function (key, value) {
 
 // INPUTS VADILATION
 export const validateInput = function (input) {
+    if (!input) return false;
     if (input.trim() === '' || input.length < 3) {
         return false;
     } else {
@@ -22,7 +23,8 @@ export const validateInput = function (input) {
 };
 
 export const validatePassword = function (password) {
-    if (password.trim() === '' || password.length < 6) {
+    if (!password) return false;
+    else if (password.trim() === '' || password.length < 6) {
         return false;
     } else {
         return true;

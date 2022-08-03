@@ -14,11 +14,6 @@ const Header = function () {
     const [errorMessage, setErrorMessage] = useState('');
 
     // functions
-    const userInLocalStorage = getLocalStorage('userId');
-    if (userInLocalStorage) {
-        const loggedUser = userCtx.logged(userInLocalStorage);
-        console.log(loggedUser);
-    }
 
     // handlers
     const usernameInputHandler = function (event) {
@@ -42,6 +37,7 @@ const Header = function () {
 
     const logoutHandler = function () {
         const userInStorage = getLocalStorage('userId');
+        userCtx.logout(userInStorage);
         removeLocalStorage('userId', userInStorage);
         setIsLogged(false);
     };
@@ -77,7 +73,7 @@ const Header = function () {
                             <input
                                 type='password'
                                 className='input'
-                                placeholder='password'
+                                placeholder='Password'
                                 onChange={passwordInputHandler}
                             />
                             {errorMessage && <div className='error'>{errorMessage}</div>}

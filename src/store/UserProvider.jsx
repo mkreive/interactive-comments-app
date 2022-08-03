@@ -25,10 +25,6 @@ const userDefaultState = {
 const defaultCommentState = [];
 
 const dataReducer = function (state, action) {
-    if (action.type === 'LOGGED') {
-        return usersData.find((user) => user.username === action.username);
-    }
-
     if (action.type === 'LOGIN') {
         const existingUser = usersData.find(
             (user) => user.username === action.username && user.password === action.password
@@ -37,6 +33,10 @@ const dataReducer = function (state, action) {
             setLocalStorage('userId', existingUser.username);
         }
         return existingUser;
+    }
+    if (action.type === 'LOGOUT') {
+        const existingUser = usersData.find((user) => user.username === action.username);
+        console.log(existingUser);
     }
     if (action.type === 'SIGNUP') {
         console.log('signup');
@@ -51,12 +51,11 @@ const DataProvider = function (props) {
     const [userState, dispatchUserAction] = useReducer(dataReducer, userDefaultState);
     const [commentState, dispatchCommentAction] = useReducer(dataReducer, defaultCommentState);
 
-    const loggedUserHandler = function (username) {
-        dispatchUserAction({ type: 'LOGGED', username });
-    };
-
     const loginHandler = function (username, password) {
         dispatchUserAction({ type: 'LOGIN', username, password });
+    };
+    const logoutHandler = function (username) {
+        dispatchUserAction({ type: 'LOGOUT', username });
     };
     const signupHandler = function (username, password) {
         dispatchUserAction({ type: 'SIGNUP', username, password });
@@ -74,9 +73,9 @@ const DataProvider = function (props) {
     };
 
     const userContext = {
-        logged: loggedUserHandler,
         user: userState,
         login: loginHandler,
+        logout: logoutHandler,
         signup: signupHandler,
 
         comments: commentState,
