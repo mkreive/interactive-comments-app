@@ -35,8 +35,8 @@ const dataReducer = function (state, action) {
         return existingUser;
     }
     if (action.type === 'LOGOUT') {
-        const existingUser = usersData.find((user) => user.username === action.username);
-        console.log(existingUser);
+        // const existingUser = usersData.find((user) => user.username === action.username);
+        console.log(state);
     }
     if (action.type === 'SIGNUP') {
         console.log('signup');
