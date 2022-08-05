@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { getLocalStorage, removeLocalStorage, validateInput, validatePassword } from '../helperFunctions';
 import UserContext from '../store/user-context';
 import '../index.scss';
@@ -6,18 +6,13 @@ import '../index.scss';
 const Header = function () {
     const userCtx = useContext(UserContext);
     const loggedUser = userCtx.user;
-    const userInLocalStorage = getLocalStorage('userId');
+    console.log('loggeduser', loggedUser);
 
     // states
-    const [isLogged, setIsLogged] = useState(userInLocalStorage);
+    const [isLogged, setIsLogged] = useState(false);
     const [usernameInput, setUsernameInput] = useState();
     const [passwordInput, setPasswordInput] = useState();
     const [errorMessage, setErrorMessage] = useState('');
-
-    // functions
-    useEffect(() => {
-        console.log('pasikeite');
-    }, isLogged);
 
     // handlers
     const usernameInputHandler = function (event) {
@@ -33,7 +28,7 @@ const Header = function () {
 
         if (validateInput(usernameInput) && validatePassword(passwordInput)) {
             userCtx.login(username, password);
-            setIsLogged(username);
+            setIsLogged(true);
         } else {
             setErrorMessage('Username and/or password is invalid');
         }
@@ -43,7 +38,7 @@ const Header = function () {
         const userInStorage = getLocalStorage('userId');
         userCtx.logout(userInStorage);
         removeLocalStorage('userId', userInStorage);
-        setIsLogged('');
+        setIsLogged(false);
     };
 
     return (
