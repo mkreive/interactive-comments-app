@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { getLocalStorage, removeLocalStorage, validateInput, validatePassword } from '../helperFunctions';
 import UserContext from '../store/user-context';
 import '../index.scss';
@@ -6,13 +6,21 @@ import '../index.scss';
 const Header = function () {
     const userCtx = useContext(UserContext);
     const loggedUser = userCtx.user;
-    console.log('loggeduser', loggedUser);
 
     // states
     const [isLogged, setIsLogged] = useState(false);
     const [usernameInput, setUsernameInput] = useState();
     const [passwordInput, setPasswordInput] = useState();
     const [errorMessage, setErrorMessage] = useState('');
+
+    // functions
+    const userInStorage = getLocalStorage('userId');
+    useEffect(() => {
+        if (userInStorage) {
+            userCtx.logged(userInStorage);
+            setIsLogged(true);
+        }
+    }, [loggedUser.username]);
 
     // handlers
     const usernameInputHandler = function (event) {
