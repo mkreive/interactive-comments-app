@@ -1,16 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import '../index.scss';
-// import Reply from './Reply';
 import Comment from './Comment';
 import UserContext from '../store/user-context';
 
 const Main = function () {
+    const [isActive, setIsActive] = useState(false);
     const context = useContext(UserContext);
     const comments = context.comments;
 
     const topicSelectHandler = function (event) {
         const selectedTopic = event.target.innerText;
         context.filterComments(selectedTopic);
+        setIsActive(!isActive);
     };
     const parentComments = comments.filter((comment) => comment.parentId === null);
 
