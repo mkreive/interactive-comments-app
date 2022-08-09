@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { getLocalStorage, removeLocalStorage, validateInput, validatePassword } from '../helperFunctions';
 import UserContext from '../store/user-context';
 import '../index.scss';
+import { Link } from 'react-router-dom';
 
 const Header = function () {
     const userCtx = useContext(UserContext);
@@ -59,13 +60,21 @@ const Header = function () {
                 />
                 <h2 className='header__logo-name'>talk~y</h2>
             </div>
+
             <nav className='header__nav'>
                 <ul className='navigation'>
-                    <li className='navigation__item'>About</li>
-                    <li className='navigation__item'>Topics</li>
-                    <li className='navigation__item'>Contacts</li>
+                    <Link to='/about' className='navigation__item'>
+                        About
+                    </Link>
+                    <Link to='/topics' className='navigation__item'>
+                        Topics
+                    </Link>
+                    <Link to='/contacts' className='navigation__item'>
+                        Contacts
+                    </Link>
                 </ul>
             </nav>
+
             {!isLogged && (
                 <div className='signin'>
                     <form onSubmit={submitHandler}>

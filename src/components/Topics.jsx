@@ -1,26 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import '../index.scss';
 import dataTopics from '../dataTopics.json';
 import Comment from './Comment';
 import UserContext from '../store/user-context';
 
-const Main = function () {
-    // states
-    const [isActive, setIsActive] = useState(false);
-
+const Topics = function () {
     // data
     const topics = dataTopics.topics;
     const context = useContext(UserContext);
     const comments = context.comments;
 
-    const toggleClass = () => {
-        setIsActive(!isActive);
-    };
-
     const topicSelectHandler = function (event) {
         const selectedTopic = event.target.innerText;
         context.filterComments(selectedTopic);
-        toggleClass();
     };
     const parentComments = comments.filter((comment) => comment.parentId === null);
 
@@ -30,8 +22,8 @@ const Main = function () {
     };
 
     return (
-        <main className='main'>
-            <header className='main__header'>
+        <main className='topic'>
+            <header className='topic__header'>
                 <h1 className='header-huge'>Topics</h1>
                 <div className='topics'>
                     {topics.map((topic) => (
@@ -48,4 +40,4 @@ const Main = function () {
     );
 };
 
-export default Main;
+export default Topics;
