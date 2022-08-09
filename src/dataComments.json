@@ -1,0 +1,146 @@
+{
+    "comments": [
+        {
+            "id": "amy_111",
+            "topic": "family",
+            "content": "Parent comment: Maecenas scelerisque mi felis, eu rhoncus mi pulvinar eu. Cras id ligula lacinia, convallis odio aliquet, efficitur dolor.",
+            "createdAt": "1 day ago",
+            "username": "amyrobson",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
+            "score": 12,
+            "parentId": null
+        },
+        {
+            "id": "jas_111",
+            "topic": "family",
+            "content": "Parent comment: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut leo sed nibh dictum posuere. Ut quis neque eget diam interdum feugiat. Donec sed commodo urna. Etiam mollis vulputate faucibus. Nulla mi tortor, tincidunt eu risus nec, dictum imperdiet risus. Vivamus sed ex sodales, tempor erat eget, faucibus massa. Fusce scelerisque, enim eu pretium venenatis, elit ante dictum metus, eu cursus est dolor ut ex.",
+            "createdAt": "2 days ago",
+            "username": "jasontm",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
+            "score": 2,
+            "parentId": null
+        },
+        {
+            "id": "jas_444",
+            "topic": "family",
+            "content": "Answer 1: Praesent erat lorem, tempor quis metus at, accumsan ultrices nulla. Aenean bibendum mauris nulla, eget cursus est laoreet vitae. Vivamus in viverra purus. Etiam maximus enim nec faucibus facilisis. Phasellus quis auctor elit.",
+            "createdAt": "1 day ago",
+            "username": "jasontm",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
+            "score": 4,
+            "parentId": "amy_111"
+        },
+        {
+            "id": "amy_444",
+            "topic": "family",
+            "content": "Answer 1: Fusce scelerisque nunc quis risus imperdiet tincidunt at ut lacus. Aenean vitae turpis turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin sed vehicula nulla. Suspendisse consectetur dolor ut felis consequat auctor.",
+            "createdAt": "1 day ago",
+            "username": "amyrobson",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
+            "score": -3,
+            "parentId": "jas_111"
+        },
+        {
+            "id": "tim_999",
+            "topic": "family",
+            "content": "Answer 2: Donec lacinia ipsum vitae congue lacinia. Nullam egestas metus ex, eget vehicula arcu pellentesque id.",
+            "createdAt": "1 month ago",
+            "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
+            "score": 1,
+            "parentId": "jas_111"
+        },
+
+        {
+            "id": "tim_333",
+            "topic": "animals",
+            "content": "I love dogs",
+            "createdAt": "1 month ago",
+            "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
+            "score": 1,
+            "parentId": null
+        },
+        {
+            "id": "amy_222",
+            "topic": "tech",
+            "content": "Which computer is the best?",
+            "createdAt": "7 days ago",
+            "username": "amyrobson",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
+            "score": 7,
+            "parentId": null
+        },
+        {
+            "id": "amy_333",
+            "topic": "life",
+            "content": "Parent comment: Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ac laoreet risus. Proin consectetur, est eu auctor pellentesque, ipsum odio ornare leo, sed mattis est diam vel quam. Proin efficitur purus a venenatis ultricies. ",
+            "createdAt": "10 days ago",
+            "username": "amyrobson",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
+
+            "score": 44,
+            "parentId": null
+        },
+        {
+            "id": "tim_444",
+            "topic": "life",
+            "content": "Answer 1: Aenean orci orci, finibus id dignissim a, suscipit in mi. Curabitur efficitur tincidunt nisi ut consectetur.",
+            "createdAt": "9 days ago",
+            "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
+            "score": 4,
+            "parentId": "amy_333"
+        },
+        {
+            "id": "tim_777",
+            "topic": "life",
+            "content": "Answer 2: Curabitur eu cursus lorem, quis mollis arcu. Duis maximus, quam vel dignissim pulvinar, nisl felis vulputate orci, non scelerisque massa neque vitae purus. Nunc dictum, lectus ac laoreet sodales, erat risus fringilla lacus, eu scelerisque nulla magna eu odio.",
+            "createdAt": "9 days ago",
+            "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
+            "score": 4,
+            "parentId": "amy_333"
+        },
+        {
+            "id": "amy_666",
+            "topic": "life",
+            "content": "Answer 1 to answer 2: Morbi id dapibus nulla. In hac habitasse platea dictumst. Nunc id efficitur quam. Vestibulum nunc turpis, ullamcorper et iaculis mollis, pellentesque id nulla",
+            "createdAt": "10 days ago",
+            "username": "amyrobson",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
+            "score": 44,
+            "parentId": "tim_777"
+        },
+        {
+            "id": "tim_222",
+            "topic": "travel",
+            "content": "Where to travel fot honeymoon?",
+            "createdAt": "1 month ago",
+            "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
+            "score": 5,
+            "parentId": null
+        },
+        {
+            "id": "tim_111",
+            "topic": "health",
+            "content": "My headache is getting worse and worse",
+            "createdAt": "2 months ago",
+            "username": "timirimi",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
+            "score": 9,
+            "parentId": null
+        },
+        {
+            "id": "jas_222",
+            "topic": "health",
+            "content": "Good for you!",
+            "createdAt": "1 month1 ago",
+            "username": "jasontm",
+            "avatar": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
+            "score": 2,
+            "parentId": "tim_111"
+        }
+    ]
+}

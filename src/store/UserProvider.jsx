@@ -1,10 +1,11 @@
 import React, { useReducer } from 'react';
 import UserContext from './user-context';
 import dataUsers from '../dataUsers';
+import dataComments from '../dataComments';
 import { setLocalStorage } from '../helperFunctions';
 
 const usersData = dataUsers.users;
-const commentsData = dataUsers.comments;
+const commentsData = dataComments.comments;
 
 const userDefaultState = {
     id: '',
@@ -22,7 +23,18 @@ const userDefaultState = {
     ],
 };
 
-const defaultCommentState = [];
+const defaultCommentState = [
+    {
+        id: '',
+        topic: '',
+        content: '',
+        createdAt: '',
+        username: '',
+        avatar: '',
+        score: 0,
+        parentId: null,
+    },
+];
 
 const dataReducer = function (state, action) {
     if (action.type === 'LOGGED') {

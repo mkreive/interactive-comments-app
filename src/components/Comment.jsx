@@ -20,14 +20,25 @@ const Comment = function (props) {
         setReplyComment(true);
     };
 
+    const upvoteHandler = function () {
+        console.log(comment.score);
+    };
+    const downvoteHandler = function () {
+        console.log('-');
+    };
+
     return (
         <div>
             <div className='card'>
                 <div className='comment'>
                     <div className='comment__votes'>
-                        <span className='comment__votes__btn'>+</span>
+                        <span className='comment__votes__btn' onClick={upvoteHandler}>
+                            +
+                        </span>
                         <span className='comment__votes__btn-number'>{comment.score}</span>
-                        <span className='comment__votes__btn'>-</span>
+                        <span className='comment__votes__btn' onClick={downvoteHandler}>
+                            -
+                        </span>
                     </div>
                     <article className='comment__main'>
                         <header className='comment__main__header'>
