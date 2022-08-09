@@ -1,5 +1,7 @@
 .navigation {
     margin-bottom: $margin-bottom-huge;
+    display: flex;
+    flex-direction: column;
 
     &__item {
         font-size: $font-size-medium;

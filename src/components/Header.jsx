@@ -50,6 +50,10 @@ const Header = function () {
         setIsLogged(false);
     };
 
+    const linkStyle = {
+        textDecoration: 'none',
+    };
+
     return (
         <header className='header'>
             <div className='header__logo'>
@@ -63,13 +67,13 @@ const Header = function () {
 
             <nav className='header__nav'>
                 <ul className='navigation'>
-                    <Link to='/about' className='navigation__item'>
+                    <Link to='/about' style={linkStyle} className='navigation__item'>
                         About
                     </Link>
-                    <Link to='/topics' className='navigation__item'>
+                    <Link to='/topics' style={linkStyle} className='navigation__item'>
                         Topics
                     </Link>
-                    <Link to='/contacts' className='navigation__item'>
+                    <Link to='/contacts' style={linkStyle} className='navigation__item'>
                         Contacts
                     </Link>
                 </ul>
