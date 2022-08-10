@@ -4,18 +4,27 @@ import UserContext from '../store/user-context';
 import Reply from './Reply';
 
 const Comment = function (props) {
+    // states
     const [replyComment, setReplyComment] = useState(false);
+
+    // data
+    const commentId = props.commentId;
+    const selectedTopic = props.topic;
     const comment = props.comment;
     const replies = props.replies;
-
     const context = useContext(UserContext);
     const comments = context.comments;
 
+    console.log(commentId);
+    console.log(selectedTopic);
+
+    // functions
     const getReplies = function (commentId) {
         const replies = comments.filter((comment) => comment.parentId === commentId);
         return replies;
     };
 
+    // handlers
     const onReplyHandler = function () {
         setReplyComment(true);
     };

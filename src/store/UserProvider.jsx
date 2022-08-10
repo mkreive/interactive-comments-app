@@ -37,6 +37,7 @@ const defaultCommentState = [
 ];
 
 const dataReducer = function (state, action) {
+    // user
     if (action.type === 'LOGGED') {
         const existingUser = usersData.find((user) => user.username === action.username);
         return existingUser;
@@ -57,6 +58,8 @@ const dataReducer = function (state, action) {
     if (action.type === 'SIGNUP') {
         console.log('signup');
     }
+
+    // comments
     if (action.type === 'FILTER_COMMENTS') {
         const filteredComments = commentsData.filter((comment) => comment.topic === action.topic);
         return filteredComments;
