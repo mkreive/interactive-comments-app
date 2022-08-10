@@ -61,7 +61,7 @@ const Topics = function () {
                         replies={getReplies(comment.id)}
                     ></Comment>
                 ))}
-            <AddComment></AddComment>
+            {selected && <AddComment topic={selected}></AddComment>}
         </main>
     );
 };

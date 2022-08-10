@@ -8,15 +8,12 @@ const Comment = function (props) {
     const [replyComment, setReplyComment] = useState(false);
 
     // data
-    const commentId = props.commentId;
-    const selectedTopic = props.topic;
+    // const commentId = props.commentId;
+    // const selectedTopic = props.topic;
     const comment = props.comment;
     const replies = props.replies;
     const context = useContext(UserContext);
     const comments = context.comments;
-
-    console.log(commentId);
-    console.log(selectedTopic);
 
     // functions
     const getReplies = function (commentId) {

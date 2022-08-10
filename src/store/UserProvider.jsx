@@ -64,6 +64,23 @@ const dataReducer = function (state, action) {
         const filteredComments = commentsData.filter((comment) => comment.topic === action.topic);
         return filteredComments;
     }
+    if (action.type === 'ADD_COMMENT') {
+        const user = action.user;
+        const topic = action.topic;
+        const comment = action.comment;
+
+        state.push({
+            id: `${user.username}__${Math.floor(Math.random() * 999)}`,
+            topic,
+            content: comment,
+            createdAt: new Date(),
+            username: user.username,
+            avatar: user.image,
+            score: 0,
+            parentId: null,
+        });
+        console.log(state);
+    }
 };
 
 const DataProvider = function (props) {
@@ -87,8 +104,8 @@ const DataProvider = function (props) {
         dispatchCommentAction({ type: 'FILTER_COMMENTS', topic });
     };
 
-    const addCommentHandler = function (comment) {
-        dispatchCommentAction({ type: 'ADD_COMMENT', comment });
+    const addCommentHandler = function (user, topic, comment) {
+        dispatchCommentAction({ type: 'ADD_COMMENT', user, topic, comment });
     };
     const deleteCommentHandler = function (comment) {
         dispatchCommentAction({ type: 'DELETE_COMMENT', comment });

@@ -9,7 +9,7 @@
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-amyrobson_r3w5jz.png",
             "username": "amyrobson",
             "replies": [],
-            "comments": ["amy_111"]
+            "comments": ["amy_111", "amy_222", "amy_333", "amy_666", "amy_444"]
         },
         {
             "id": "timirimi222",
@@ -18,11 +18,7 @@
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
             "username": "timirimi",
             "replies": [],
-            "comments": [
-                {
-                    "id": "tim_111"
-                }
-            ]
+            "comments": ["tim_111", "tim_222", "tim_333", "tim_444", "tim_777", "tim_999"]
         },
         {
             "id": "jasontm333",
@@ -31,11 +27,7 @@
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
             "username": "jasontm",
             "replies": [],
-            "comments": [
-                {
-                    "id": "jas_111"
-                }
-            ]
+            "comments": ["jas_111", "jas_222", "jas_444"]
         }
     ]
 }

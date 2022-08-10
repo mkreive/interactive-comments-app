@@ -1,17 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import '../index.scss';
 import UserContext from '../store/user-context';
 
-const AddComment = function () {
+const AddComment = function (props) {
     // states
+    const [comment, setComment] = useState('');
 
     // data
+    const selectedTopic = props.topic;
     const context = useContext(UserContext);
     const user = context.user;
     const today = new Date().toLocaleDateString();
 
     // handlers
-    const addCommentHandler = function () {};
+    const commentHandler = function (e) {
+        const comment = e.target.value;
+        setComment(comment);
+    };
+    const addCommentHandler = function () {
+        context.addComment(user, selectedTopic, comment);
+        setComment('');
+    };
 
     return (
         <div className='card'>
@@ -27,7 +36,7 @@ const AddComment = function () {
                             alt='user-photo'
                         />
                         <h3 className='header-small'>{user.username}</h3>
-                        {<span className='header-small-colored'>you</span>}
+                        {user.username && <span className='header-small-colored'>you</span>}
                         <span className='header-small-gray'>{today}</span>
                         <div className='header-reply' onClick={addCommentHandler}>
                             Post
@@ -36,7 +45,13 @@ const AddComment = function () {
                 </article>
             </div>
 
-            <textarea name='comment' id='123' rows='3' className='text--area '></textarea>
+            <textarea
+                name='comment'
+                id='123'
+                rows='3'
+                className='text--area text--comment'
+                onChange={commentHandler}
+            ></textarea>
         </div>
     );
 };
