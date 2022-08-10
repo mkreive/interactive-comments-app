@@ -36,8 +36,7 @@ const defaultCommentState = [
     },
 ];
 
-const dataReducer = function (state, action) {
-    // user
+const userDataReducer = function (state, action) {
     if (action.type === 'LOGGED') {
         const existingUser = usersData.find((user) => user.username === action.username);
         return existingUser;
@@ -58,8 +57,9 @@ const dataReducer = function (state, action) {
     if (action.type === 'SIGNUP') {
         console.log('signup');
     }
+};
 
-    // comments
+const commentsDataReducer = function (state, action) {
     if (action.type === 'FILTER_COMMENTS') {
         const filteredComments = commentsData.filter((comment) => comment.topic === action.topic);
         return filteredComments;
@@ -69,7 +69,7 @@ const dataReducer = function (state, action) {
         const topic = action.topic;
         const comment = action.comment;
 
-        state.push({
+        const newComment = {
             id: `${user.username}__${Math.floor(Math.random() * 999)}`,
             topic,
             content: comment,
@@ -78,14 +78,16 @@ const dataReducer = function (state, action) {
             avatar: user.image,
             score: 0,
             parentId: null,
-        });
-        console.log(state);
+        };
+
+        commentsData.push(newComment);
+        console.log(commentsData);
     }
 };
 
 const DataProvider = function (props) {
-    const [userState, dispatchUserAction] = useReducer(dataReducer, userDefaultState);
-    const [commentState, dispatchCommentAction] = useReducer(dataReducer, defaultCommentState);
+    const [userState, dispatchUserAction] = useReducer(userDataReducer, userDefaultState);
+    const [commentState, dispatchCommentAction] = useReducer(commentsDataReducer, defaultCommentState);
 
     const loggedHandler = function (username) {
         dispatchUserAction({ type: 'LOGGED', username });
@@ -120,15 +122,8 @@ const DataProvider = function (props) {
 
         comments: commentState,
         filterComments: filterCommentsHandler,
-
         addComment: addCommentHandler,
         deleteComment: deleteCommentHandler,
-        voteComment: () => {},
-
-        addPost: () => {},
-        deletePost: () => {},
-        editPost: () => {},
-        votePost: () => {},
     };
 
     return <UserContext.Provider value={userContext}>{props.children}</UserContext.Provider>;
