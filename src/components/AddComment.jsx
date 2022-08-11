@@ -18,8 +18,8 @@ const AddComment = function (props) {
         setComment(comment);
     };
     const addCommentHandler = function () {
-        context.addComment(user, selectedTopic, comment);
         setComment('');
+        context.addComment(user, selectedTopic, comment);
     };
 
     return (
@@ -35,7 +35,7 @@ const AddComment = function (props) {
                             }
                             alt='user-photo'
                         />
-                        <h3 className='header-small'>{user.username}</h3>
+                        <h3 className='header-small'>{user.username || 'anonymous'}</h3>
                         {user.username && <span className='header-small-colored'>you</span>}
                         <span className='header-small-gray'>{today}</span>
                         <div className='header-reply' onClick={addCommentHandler}>

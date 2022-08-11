@@ -62,6 +62,10 @@ const userDataReducer = function (state, action) {
 const commentsDataReducer = function (state, action) {
     if (action.type === 'FILTER_COMMENTS') {
         const filteredComments = commentsData.filter((comment) => comment.topic === action.topic);
+
+        if (filteredComments.length === 0) {
+            return defaultCommentState;
+        }
         return filteredComments;
     }
     if (action.type === 'ADD_COMMENT') {
@@ -82,6 +86,7 @@ const commentsDataReducer = function (state, action) {
 
         commentsData.push(newComment);
         console.log(commentsData);
+        return state;
     }
 };
 
