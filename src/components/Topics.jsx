@@ -14,7 +14,6 @@ const Topics = function () {
     const topics = dataTopics.topics;
     const context = useContext(UserContext);
     const comments = context.comments;
-    console.log('comentai', comments);
 
     // handlers
     const topicSelectHandler = function (event) {

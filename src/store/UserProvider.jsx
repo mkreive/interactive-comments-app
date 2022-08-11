@@ -77,7 +77,7 @@ const commentsDataReducer = function (state, action) {
             id: `${user.username}__${Math.floor(Math.random() * 999)}`,
             topic,
             content: comment,
-            createdAt: new Date(),
+            createdAt: new Date().toLocaleDateString(),
             username: user.username,
             avatar: user.image,
             score: 0,

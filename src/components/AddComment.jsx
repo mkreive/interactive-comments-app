@@ -20,6 +20,7 @@ const AddComment = function (props) {
     const addCommentHandler = function () {
         setComment('');
         context.addComment(user, selectedTopic, comment);
+        context.filterComments(selectedTopic);
     };
 
     return (
@@ -44,13 +45,13 @@ const AddComment = function (props) {
                     </header>
                 </article>
             </div>
-
             <textarea
                 name='comment'
                 id='123'
                 rows='3'
                 className='text--area text--comment'
                 onChange={commentHandler}
+                value={comment}
             ></textarea>
         </div>
     );
