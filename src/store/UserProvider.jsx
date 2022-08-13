@@ -61,6 +61,7 @@ const userDataReducer = function (state, action) {
 
 const commentsDataReducer = function (state, action) {
     if (action.type === 'FILTER_COMMENTS') {
+        console.log('pafiltruok');
         const filteredComments = commentsData.filter((comment) => comment.topic === action.topic);
 
         if (filteredComments.length === 0) {
@@ -83,9 +84,9 @@ const commentsDataReducer = function (state, action) {
             score: 0,
             parentId: null,
         };
-        state.push(newComment);
-        console.log(state);
-        return state;
+        const newState = [...state, newComment];
+
+        return newState;
     }
     return defaultCommentState;
 };
