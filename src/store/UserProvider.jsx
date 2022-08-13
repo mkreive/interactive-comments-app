@@ -84,6 +84,7 @@ const commentsDataReducer = function (state, action) {
             parentId: null,
         };
         state.push(newComment);
+        console.log(state);
         return state;
     }
     return defaultCommentState;

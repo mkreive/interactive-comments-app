@@ -15,10 +15,10 @@ const AddComment = function (props) {
 
     // handlers
     const addCommentHandler = function (e) {
-        console.log(e.target.previousElementSibling.value);
-        setComment('');
+        setComment(e.target.previousElementSibling.value);
         context.addComment(user, selectedTopic, comment);
         context.filterComments(selectedTopic);
+        setComment('');
     };
     console.log('comentai', comments);
 
