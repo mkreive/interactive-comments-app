@@ -83,11 +83,10 @@ const commentsDataReducer = function (state, action) {
             score: 0,
             parentId: null,
         };
-
-        commentsData.push(newComment);
-        console.log(commentsData);
+        state.push(newComment);
         return state;
     }
+    return defaultCommentState;
 };
 
 const DataProvider = function (props) {

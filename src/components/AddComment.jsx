@@ -10,18 +10,17 @@ const AddComment = function (props) {
     const selectedTopic = props.topic;
     const context = useContext(UserContext);
     const user = context.user;
+    const comments = context.comments;
     const today = new Date().toLocaleDateString();
 
     // handlers
-    const commentHandler = function (e) {
-        const comment = e.target.value;
-        setComment(comment);
-    };
-    const addCommentHandler = function () {
+    const addCommentHandler = function (e) {
+        console.log(e.target.previousElementSibling.value);
         setComment('');
         context.addComment(user, selectedTopic, comment);
         context.filterComments(selectedTopic);
     };
+    console.log('comentai', comments);
 
     return (
         <div className='card'>
@@ -39,20 +38,21 @@ const AddComment = function (props) {
                         <h3 className='header-small'>{user.username || 'anonymous'}</h3>
                         {user.username && <span className='header-small-colored'>you</span>}
                         <span className='header-small-gray'>{today}</span>
-                        <div className='header-reply' onClick={addCommentHandler}>
-                            Post
-                        </div>
                     </header>
                 </article>
             </div>
-            <textarea
-                name='comment'
-                id='123'
-                rows='3'
-                className='text--area text--comment'
-                onChange={commentHandler}
-                value={comment}
-            ></textarea>
+            <form action='POST'>
+                <textarea
+                    name='comment'
+                    id='123'
+                    rows='1'
+                    className='text--area text--comment'
+                    defaultValue={comment}
+                ></textarea>
+                <div className='btn' onClick={addCommentHandler}>
+                    Post
+                </div>
+            </form>
         </div>
     );
 };

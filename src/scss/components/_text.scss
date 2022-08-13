@@ -6,6 +6,7 @@
     &--comment {
         border: 1px solid $color-neutral-light-gray !important;
         margin-top: $margin-bottom-medium;
+        margin-bottom: $margin-bottom-small;
 
         &:focus {
             border: 1px solid $color-primary-moderate-blue !important;
