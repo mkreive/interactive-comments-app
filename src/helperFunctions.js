@@ -30,3 +30,10 @@ export const validatePassword = function (password) {
         return true;
     }
 };
+
+// FETCHING DATA
+export const fetchData = async function (address) {
+    const response = await fetch(`${address}`);
+    const responseData = await response.json();
+    return responseData;
+};

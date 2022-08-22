@@ -1,32 +1,21 @@
 import React, { useReducer } from 'react';
 import UserContext from './user-context';
 import dataUsers from '../dataUsers';
-// import dataComments from '../dataComments';
-import { setLocalStorage } from '../helperFunctions';
-
-const fetchComments = async function () {
-    const response = await fetch(
-        `https://interactivecommentsapp-default-rtdb.europe-west1.firebasedatabase.app/comments.json`
-    );
-    const responseData = await response.json();
-    const comments = [];
-    for (const key in responseData) {
-        comments.push({
-            id: key,
-            username: responseData[key].username,
-            avatar: responseData[key].avatar,
-            content: responseData[key].content,
-            parentId: responseData[key].parentId,
-            createdAt: responseData[key].createdAt,
-            score: responseData[key].score,
-            topic: responseData[key].topic,
-        });
-    }
-    return comments;
-};
+import { setLocalStorage, fetchData } from '../helperFunctions';
 
 const usersData = dataUsers.users;
-const commentsData = fetchComments();
+let commentsData;
+
+const fetchComments = async function () {
+    try {
+        const fetchAddress = `https://interactivecommentsapp-default-rtdb.europe-west1.firebasedatabase.app/comments.json`;
+        const data = await fetchData(fetchAddress);
+        commentsData = data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+fetchComments();
 
 const userDefaultState = {
     id: '',
@@ -81,9 +70,11 @@ const userDataReducer = function (state, action) {
 };
 
 const commentsDataReducer = function (state, action) {
+    const [comments] = commentsData;
+    console.log(comments);
+
     if (action.type === 'FILTER_COMMENTS') {
-        console.log(commentsData);
-        const filteredComments = commentsData.filter((comment) => comment.topic === action.topic);
+        const filteredComments = comments.filter((comment) => comment.topic === action.topic);
 
         if (filteredComments.length === 0) {
             return defaultCommentState;
