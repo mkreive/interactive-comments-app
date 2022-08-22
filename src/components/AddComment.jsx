@@ -14,13 +14,14 @@ const AddComment = function (props) {
     const today = new Date().toLocaleDateString();
 
     // handlers
+    const addingCommentHandler = function (e) {
+        setComment(e.target.value);
+    };
     const addCommentHandler = function (e) {
-        setComment(e.target.previousElementSibling.value);
         context.addComment(user, selectedTopic, comment);
-        context.filterComments(selectedTopic);
         setComment('');
     };
-    console.log('comentai', comments);
+    console.log('comentai po', comments);
 
     return (
         <div className='card'>
@@ -47,7 +48,8 @@ const AddComment = function (props) {
                     id='123'
                     rows='1'
                     className='text--area text--comment'
-                    defaultValue={comment}
+                    value={comment}
+                    onChange={addingCommentHandler}
                 ></textarea>
                 <div className='btn' onClick={addCommentHandler}>
                     Post

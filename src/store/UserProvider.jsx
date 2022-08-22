@@ -61,7 +61,6 @@ const userDataReducer = function (state, action) {
 
 const commentsDataReducer = function (state, action) {
     if (action.type === 'FILTER_COMMENTS') {
-        console.log('pafiltruok');
         const filteredComments = commentsData.filter((comment) => comment.topic === action.topic);
 
         if (filteredComments.length === 0) {
@@ -72,20 +71,20 @@ const commentsDataReducer = function (state, action) {
     if (action.type === 'ADD_COMMENT') {
         const user = action.user;
         const topic = action.topic;
-        const comment = action.comment;
+        const commentText = action.comment;
 
         const newComment = {
             id: `${user.username}__${Math.floor(Math.random() * 999)}`,
             topic,
-            content: comment,
+            content: commentText,
             createdAt: new Date().toLocaleDateString(),
             username: user.username,
             avatar: user.image,
             score: 0,
             parentId: null,
         };
-        const newState = [...state, newComment];
 
+        const newState = [...state, newComment];
         return newState;
     }
     return defaultCommentState;
