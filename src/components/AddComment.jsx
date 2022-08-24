@@ -10,7 +10,7 @@ const AddComment = function (props) {
     const selectedTopic = props.topic;
     const context = useContext(UserContext);
     const user = context.user;
-    const comments = context.comments;
+    // const comments = context.comments;
     const today = new Date().toLocaleDateString();
 
     // handlers
@@ -21,7 +21,6 @@ const AddComment = function (props) {
         context.addComment(user, selectedTopic, comment);
         setComment('');
     };
-    console.log('comentai po', comments);
 
     return (
         <div className='card'>

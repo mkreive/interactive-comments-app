@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../index.scss';
 import dataTopics from '../dataTopics.json';
@@ -9,11 +9,18 @@ import AddComment from './AddComment';
 const Topics = function () {
     // states
     const [selected, setSelected] = useState('');
+    const [parents, setParents] = useState([]);
 
     // data
     const topics = dataTopics.topics;
     const context = useContext(UserContext);
     const comments = context.comments;
+
+    // dependancies
+    useEffect(() => {
+        const parentComments = comments.filter((comment) => comment.parentId);
+        setParents(parentComments);
+    }, [comments]);
 
     // handlers
     const topicSelectHandler = function (event) {
@@ -21,8 +28,6 @@ const Topics = function () {
         context.filterComments(selectedTopic);
         setSelected(selectedTopic);
     };
-
-    const parentComments = comments.filter((comment) => comment.parentId === null);
 
     const getReplies = function (commentId) {
         const replies = comments.filter((comment) => comment.parentId === commentId);
@@ -52,7 +57,7 @@ const Topics = function () {
                 </div>
             </header>
             {comments[0].id &&
-                parentComments.map((comment) => (
+                parents.map((comment) => (
                     <Comment
                         key={comment.id}
                         commentId={comment.id}

@@ -10,7 +10,8 @@ const fetchComments = async function () {
     try {
         const fetchAddress = `https://interactivecommentsapp-default-rtdb.europe-west1.firebasedatabase.app/comments.json`;
         const data = await fetchData(fetchAddress);
-        commentsData = data;
+        const allComments = Object.values(data);
+        commentsData = allComments;
     } catch (error) {
         console.error(error);
     }
@@ -70,8 +71,7 @@ const userDataReducer = function (state, action) {
 };
 
 const commentsDataReducer = function (state, action) {
-    const [comments] = commentsData;
-    console.log(comments);
+    const comments = commentsData;
 
     if (action.type === 'FILTER_COMMENTS') {
         const filteredComments = comments.filter((comment) => comment.topic === action.topic);
