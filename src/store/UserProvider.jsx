@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import UserContext from './user-context';
 import dataUsers from '../dataUsers';
-import { setLocalStorage, fetchData } from '../helperFunctions';
+import { setLocalStorage, fetchData, voteComment } from '../helperFunctions';
 
 const usersData = dataUsers.users;
 let commentsData;
@@ -71,16 +71,15 @@ const userDataReducer = function (state, action) {
 };
 
 const commentsDataReducer = function (state, action) {
-    const comments = commentsData;
-
     if (action.type === 'FILTER_COMMENTS') {
-        const filteredComments = comments.filter((comment) => comment.topic === action.topic);
+        const filteredComments = commentsData.filter((comment) => comment.topic === action.topic);
 
         if (filteredComments.length === 0) {
             return defaultCommentState;
         }
         return filteredComments;
     }
+
     if (action.type === 'ADD_COMMENT') {
         const user = action.user;
         const topic = action.topic;
@@ -99,6 +98,23 @@ const commentsDataReducer = function (state, action) {
 
         const newState = [...state, newComment];
         return newState;
+    }
+
+    if (action.type === 'VOTE_COMMENT') {
+        const commentId = action.comment.id;
+        const commentScore = action.comment.score;
+        let newScore;
+
+        if (action.vote === 'up') {
+            newScore = commentScore + 1;
+        }
+        if (action.vote === 'down') {
+            newScore = commentScore - 1;
+        }
+
+        voteComment(commentId, newScore);
+
+        return state;
     }
     return defaultCommentState;
 };
@@ -130,6 +146,9 @@ const DataProvider = function (props) {
     const deleteCommentHandler = function (comment) {
         dispatchCommentAction({ type: 'DELETE_COMMENT', comment });
     };
+    const voteCommentHandler = function (comment, vote) {
+        dispatchCommentAction({ type: 'VOTE_COMMENT', comment, vote });
+    };
 
     const userContext = {
         user: userState,
@@ -142,6 +161,7 @@ const DataProvider = function (props) {
         filterComments: filterCommentsHandler,
         addComment: addCommentHandler,
         deleteComment: deleteCommentHandler,
+        voteComment: voteCommentHandler,
     };
 
     return <UserContext.Provider value={userContext}>{props.children}</UserContext.Provider>;

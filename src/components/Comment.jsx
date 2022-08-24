@@ -27,10 +27,10 @@ const Comment = function (props) {
     };
 
     const upvoteHandler = function () {
-        console.log(comment.score);
+        context.voteComment(comment, 'up');
     };
     const downvoteHandler = function () {
-        console.log('-');
+        context.voteComment(comment, 'down');
     };
 
     return (

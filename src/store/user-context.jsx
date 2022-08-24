@@ -9,7 +9,6 @@ const UserContext = React.createContext({
     filterComments: () => {},
     addComment: () => {},
     deleteComment: () => {},
-    editComment: () => {},
     voteComment: () => {},
 
     addPost: () => {},
