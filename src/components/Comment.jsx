@@ -11,6 +11,8 @@ const Comment = function (props) {
     // const commentId = props.commentId;
     // const selectedTopic = props.topic;
     const comment = props.comment;
+    const [score, setScore] = useState(comment.score);
+
     const replies = props.replies;
     const context = useContext(UserContext);
     const comments = context.comments;
@@ -28,9 +30,11 @@ const Comment = function (props) {
 
     const upvoteHandler = function () {
         context.voteComment(comment, 'up');
+        setScore(score + 1);
     };
     const downvoteHandler = function () {
         context.voteComment(comment, 'down');
+        setScore(score - 1);
     };
 
     return (
@@ -41,7 +45,7 @@ const Comment = function (props) {
                         <span className='comment__votes__btn' onClick={upvoteHandler}>
                             +
                         </span>
-                        <span className='comment__votes__btn-number'>{comment.score}</span>
+                        <span className='comment__votes__btn-number'>{score}</span>
                         <span className='comment__votes__btn' onClick={downvoteHandler}>
                             -
                         </span>

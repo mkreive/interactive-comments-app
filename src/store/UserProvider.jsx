@@ -111,8 +111,8 @@ const commentsDataReducer = function (state, action) {
         if (action.vote === 'down') {
             newScore = commentScore - 1;
         }
-
         voteComment(commentId, newScore);
+        // state[0].score = newScore;
 
         return state;
     }

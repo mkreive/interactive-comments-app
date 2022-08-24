@@ -61,14 +61,8 @@ export const voteComment = async function (commentId, score) {
     const id = commentId;
     const newScore = score;
 
-    console.log(newScore, id);
-
-    fetch(
-        `https://interactivecommentsapp-default-rtdb.europe-west1.firebasedatabase.app
-        /comments/${id}/.json`,
-        {
-            method: 'PATCH',
-            body: JSON.stringify({ score: newScore }),
-        }
-    );
+    fetch(`https://interactivecommentsapp-default-rtdb.europe-west1.firebasedatabase.app/comments/${id}/score.json`, {
+        method: 'PUT',
+        body: JSON.stringify(newScore),
+    });
 };
