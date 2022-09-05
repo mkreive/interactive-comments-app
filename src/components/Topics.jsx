@@ -38,6 +38,11 @@ const Topics = function () {
         textDecoration: 'none',
     };
 
+    const addNewCommentHandler = function () {
+        console.log('komentas');
+        context.filterComments(selected);
+    };
+
     return (
         <main className='topic'>
             <header className='topic__header'>
@@ -66,7 +71,7 @@ const Topics = function () {
                         replies={getReplies(comment.id)}
                     ></Comment>
                 ))}
-            {selected && <AddComment topic={selected}></AddComment>}
+            {selected && <AddComment topic={selected} addNewComment={addNewCommentHandler}></AddComment>}
         </main>
     );
 };

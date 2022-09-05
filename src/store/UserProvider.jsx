@@ -12,6 +12,7 @@ const fetchComments = async function () {
         const data = await fetchData(fetchAddress);
         const allComments = Object.values(data);
         commentsData = allComments;
+        return commentsData;
     } catch (error) {
         console.error(error);
     }
@@ -97,8 +98,8 @@ const commentsDataReducer = function (state, action) {
         };
 
         addCommentToDataBase(newComment);
+        fetchComments();
         const newState = [...state, newComment];
-        console.log(defaultCommentState);
         return newState;
     }
 

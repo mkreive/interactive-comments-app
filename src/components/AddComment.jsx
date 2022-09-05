@@ -16,9 +16,10 @@ const AddComment = function (props) {
     const writingCommentHandler = function (e) {
         setComment(e.target.value);
     };
-    const addCommentHandler = function (e) {
+    const addCommentHandler = function () {
         context.addComment(user, selectedTopic, comment);
         setComment('');
+        props.addNewComment();
     };
 
     return (
