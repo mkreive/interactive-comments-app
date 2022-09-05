@@ -8,9 +8,8 @@ const Comment = function (props) {
     const [replyComment, setReplyComment] = useState(false);
 
     // data
-    // const commentId = props.commentId;
-    // const selectedTopic = props.topic;
     const comment = props.comment;
+    const [voted, setVoted] = useState(false);
     const [score, setScore] = useState(comment.score);
 
     const replies = props.replies;
@@ -29,12 +28,18 @@ const Comment = function (props) {
     };
 
     const upvoteHandler = function () {
-        context.voteComment(comment, 'up');
-        setScore(score + 1);
+        if (!voted) {
+            context.voteComment(comment, 'up');
+            setScore(score + 1);
+            setVoted(true);
+        }
     };
     const downvoteHandler = function () {
-        context.voteComment(comment, 'down');
-        setScore(score - 1);
+        if (!voted) {
+            context.voteComment(comment, 'down');
+            setScore(score - 1);
+            setVoted(true);
+        }
     };
 
     return (
