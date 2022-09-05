@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import UserContext from './user-context';
 import dataUsers from '../dataUsers';
-import { setLocalStorage, fetchData, voteComment } from '../helperFunctions';
+import { setLocalStorage, fetchData, voteComment, addCommentToDataBase } from '../helperFunctions';
 
 const usersData = dataUsers.users;
 let commentsData;
@@ -86,7 +86,7 @@ const commentsDataReducer = function (state, action) {
         const commentText = action.comment;
 
         const newComment = {
-            id: `${user.username}__${Math.floor(Math.random() * 999)}`,
+            id: `${user.username}_${Math.floor(Math.random() * 999)}`,
             topic,
             content: commentText,
             createdAt: new Date().toLocaleDateString(),
@@ -96,7 +96,9 @@ const commentsDataReducer = function (state, action) {
             parentId: null,
         };
 
+        addCommentToDataBase(newComment);
         const newState = [...state, newComment];
+        console.log(defaultCommentState);
         return newState;
     }
 

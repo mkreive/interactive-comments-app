@@ -66,3 +66,21 @@ export const voteComment = async function (commentId, score) {
         body: JSON.stringify(newScore),
     });
 };
+
+export const addCommentToDataBase = async function (comment) {
+    const commentId = comment.id;
+
+    fetch(`https://interactivecommentsapp-default-rtdb.europe-west1.firebasedatabase.app/comments/${commentId}.json`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            id: comment.id,
+            parentId: comment.parentId,
+            content: comment.content,
+            createdAt: comment.createdAt,
+            score: 0,
+            topic: comment.topic,
+            username: comment.username,
+            avatar: comment.avatar,
+        }),
+    });
+};

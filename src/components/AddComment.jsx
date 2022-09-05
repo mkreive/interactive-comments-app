@@ -10,11 +10,10 @@ const AddComment = function (props) {
     const selectedTopic = props.topic;
     const context = useContext(UserContext);
     const user = context.user;
-    // const comments = context.comments;
     const today = new Date().toLocaleDateString();
 
     // handlers
-    const addingCommentHandler = function (e) {
+    const writingCommentHandler = function (e) {
         setComment(e.target.value);
     };
     const addCommentHandler = function (e) {
@@ -48,7 +47,7 @@ const AddComment = function (props) {
                     rows='1'
                     className='text--area text--comment'
                     value={comment}
-                    onChange={addingCommentHandler}
+                    onChange={writingCommentHandler}
                 ></textarea>
                 <div className='btn' onClick={addCommentHandler}>
                     Post
