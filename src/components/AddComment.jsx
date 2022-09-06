@@ -18,7 +18,6 @@ const AddComment = function (props) {
     };
     const addCommentHandler = function () {
         context.addComment(user, selectedTopic, comment);
-        console.log('contextas add komente', context);
         setComment('');
         props.addNewComment();
     };

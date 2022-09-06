@@ -99,8 +99,8 @@ const commentsDataReducer = function (state, action) {
 
         addCommentToDataBase(newComment);
 
-        const newState = [...state, newComment];
-        return newState;
+        state = [...state, newComment];
+        return state;
     }
 
     if (action.type === 'VOTE_COMMENT') {
@@ -115,8 +115,6 @@ const commentsDataReducer = function (state, action) {
             newScore = commentScore - 1;
         }
         voteComment(commentId, newScore);
-        // state[0].score = newScore;
-
         return state;
     }
     return defaultCommentState;

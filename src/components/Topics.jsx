@@ -39,10 +39,10 @@ const Topics = function () {
     };
 
     const addNewCommentHandler = function () {
-        console.log(comments);
-        context.filterComments(selected);
+        console.log(context);
+        // context.filterComments(selected);
     };
-
+    console.log('komentai', comments);
     return (
         <main className='topic'>
             <header className='topic__header'>
