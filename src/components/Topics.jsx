@@ -39,7 +39,7 @@ const Topics = function () {
     };
 
     const addNewCommentHandler = function () {
-        console.log('komentas');
+        console.log(comments);
         context.filterComments(selected);
     };
 

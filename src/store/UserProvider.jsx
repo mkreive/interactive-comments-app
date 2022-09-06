@@ -98,7 +98,7 @@ const commentsDataReducer = function (state, action) {
         };
 
         addCommentToDataBase(newComment);
-        fetchComments();
+
         const newState = [...state, newComment];
         return newState;
     }
