@@ -45,6 +45,7 @@
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-promise": "^6.0.0",
         "eslint-plugin-react": "^7.30.0",
+        "react-mentions": "^4.4.7",
         "sass": "^1.52.3"
     }
 }

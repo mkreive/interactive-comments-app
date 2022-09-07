@@ -17,6 +17,9 @@ const Comment = function (props) {
     const comments = context.comments;
 
     // functions
+    const getUsernames = function () {
+        return comments.filter((comment) => comment.username);
+    };
     const getReplies = function (commentId) {
         const replies = comments.filter((comment) => comment.parentId === commentId);
         return replies;
@@ -42,6 +45,7 @@ const Comment = function (props) {
         }
     };
 
+    console.log(comments);
     return (
         <div>
             <div className='card'>
@@ -71,7 +75,7 @@ const Comment = function (props) {
                     </article>
                 </div>
             </div>
-            {replyComment && <Reply username={comment.username} />}
+            {replyComment && <Reply usernames={getUsernames} />}
             {replies.length > 0 && (
                 <div className='replies'>
                     {replies.map((reply) => (
