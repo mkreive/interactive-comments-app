@@ -94,7 +94,7 @@ const commentsDataReducer = function (state, action) {
             username: user.username,
             avatar: user.image,
             score: 0,
-            parentId: null,
+            parentId: 'null',
         };
 
         addCommentToDataBase(newComment);

@@ -69,12 +69,13 @@ export const voteComment = async function (commentId, score) {
 
 export const addCommentToDataBase = async function (comment) {
     const commentId = comment.id;
+    console.log(comment);
 
     fetch(`https://interactivecommentsapp-default-rtdb.europe-west1.firebasedatabase.app/comments/${commentId}.json`, {
         method: 'PUT',
         body: JSON.stringify({
             id: comment.id,
-            parentId: null,
+            parentId: 'null',
             content: comment.content,
             createdAt: comment.createdAt,
             score: 0,

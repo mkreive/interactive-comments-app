@@ -38,11 +38,6 @@ const Topics = function () {
         textDecoration: 'none',
     };
 
-    const addNewCommentHandler = function () {
-        console.log(context);
-        // context.filterComments(selected);
-    };
-    console.log('komentai', comments);
     return (
         <main className='topic'>
             <header className='topic__header'>
@@ -71,7 +66,7 @@ const Topics = function () {
                         replies={getReplies(comment.id)}
                     ></Comment>
                 ))}
-            {selected && <AddComment topic={selected} addNewComment={addNewCommentHandler}></AddComment>}
+            {selected && <AddComment topic={selected}></AddComment>}
         </main>
     );
 };
