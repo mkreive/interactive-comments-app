@@ -71,7 +71,7 @@ const Comment = function (props) {
                     </article>
                 </div>
             </div>
-            {replyComment && <Reply />}
+            {replyComment && <Reply username={comment.username} />}
             {replies.length > 0 && (
                 <div className='replies'>
                     {replies.map((reply) => (
