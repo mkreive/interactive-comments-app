@@ -5,6 +5,8 @@ import '../index.scss';
 
 const Reply = function (props) {
     const usernames = props.usernames;
+    const parentCommentId = props.parentId;
+    const topic = props.topic;
     const context = useContext(UserContext);
     const user = context.user;
 
@@ -13,17 +15,23 @@ const Reply = function (props) {
     const writingReplyHandler = function (e) {
         const replyText = e.target.value;
         setReply(replyText);
-        console.log(usernames);
     };
     const addReplyHandler = function () {
-        console.log('replajino');
+        context.replyComment(user, parentCommentId, topic, reply);
+        setReply('');
+        props.onReply();
     };
 
     return (
         <div className='card'>
             <div className='reply'>
                 <img className='images__photo--reply' src={user.image} alt='user photo' />
-                <MentionsInput className='text--area' value={reply} onChange={writingReplyHandler}>
+                <MentionsInput
+                    forceSuggestionsAboveCursor
+                    className='text--area'
+                    value={reply}
+                    onChange={writingReplyHandler}
+                >
                     <Mention trigger='@' data={usernames} appendSpaceOnAdd markup='@[__display__]'></Mention>
                 </MentionsInput>
                 <button className='btn btn--blue' onClick={addReplyHandler}>

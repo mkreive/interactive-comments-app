@@ -103,6 +103,29 @@ const commentsDataReducer = function (state, action) {
         return state;
     }
 
+    if (action.type === 'REPLY_COMMENT') {
+        const user = action.user;
+        const topic = action.topic;
+        const commentText = action.comment;
+        const commentParentId = action.parentId;
+
+        const newComment = {
+            id: `${user.username}_${Math.floor(Math.random() * 999)}`,
+            topic,
+            content: commentText,
+            createdAt: new Date().toLocaleDateString(),
+            username: user.username,
+            avatar: user.image,
+            score: 0,
+            parentId: commentParentId,
+        };
+
+        addCommentToDataBase(newComment);
+
+        state = [...state, newComment];
+        return state;
+    }
+
     if (action.type === 'VOTE_COMMENT') {
         const commentId = action.comment.id;
         const commentScore = action.comment.score;
@@ -144,8 +167,8 @@ const DataProvider = function (props) {
     const addCommentHandler = function (user, topic, comment) {
         dispatchCommentAction({ type: 'ADD_COMMENT', user, topic, comment });
     };
-    const deleteCommentHandler = function (comment) {
-        dispatchCommentAction({ type: 'DELETE_COMMENT', comment });
+    const deleteCommentHandler = function (user, parentId, topic, comment) {
+        dispatchCommentAction({ type: 'REPLY_COMMENT', user, parentId, topic, comment });
     };
     const voteCommentHandler = function (comment, vote) {
         dispatchCommentAction({ type: 'VOTE_COMMENT', comment, vote });
@@ -161,7 +184,7 @@ const DataProvider = function (props) {
         comments: commentState,
         filterComments: filterCommentsHandler,
         addComment: addCommentHandler,
-        deleteComment: deleteCommentHandler,
+        replyComment: deleteCommentHandler,
         voteComment: voteCommentHandler,
     };
 

@@ -34,6 +34,10 @@ const Comment = function (props) {
         setReplyComment(true);
     };
 
+    const onSubmitReplyHandler = function () {
+        setReplyComment(false);
+    };
+
     const upvoteHandler = function () {
         if (!voted) {
             context.voteComment(comment, 'up');
@@ -78,7 +82,14 @@ const Comment = function (props) {
                     </article>
                 </div>
             </div>
-            {replyComment && <Reply usernames={usernames} />}
+            {replyComment && (
+                <Reply
+                    usernames={usernames}
+                    parentId={comment.id}
+                    topic={comment.topic}
+                    onReply={onSubmitReplyHandler}
+                />
+            )}
             {replies.length > 0 && (
                 <div className='replies'>
                     {replies.map((reply) => (

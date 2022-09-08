@@ -75,7 +75,7 @@ export const addCommentToDataBase = async function (comment) {
         method: 'PUT',
         body: JSON.stringify({
             id: comment.id,
-            parentId: 'null',
+            parentId: comment.parentId,
             content: comment.content,
             createdAt: comment.createdAt,
             score: 0,
