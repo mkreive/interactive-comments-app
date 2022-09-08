@@ -18,7 +18,7 @@ const Topics = function () {
 
     // dependancies
     useEffect(() => {
-        const parentComments = comments.filter((comment) => comment.parentId);
+        const parentComments = comments.filter((comment) => comment.parentId === 'null');
         setParents(parentComments);
     }, [comments]);
 

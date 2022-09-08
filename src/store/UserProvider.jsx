@@ -44,7 +44,7 @@ const defaultCommentState = [
         username: '',
         avatar: '',
         score: 0,
-        parentId: null,
+        parentId: '',
     },
 ];
 
@@ -106,13 +106,13 @@ const commentsDataReducer = function (state, action) {
     if (action.type === 'REPLY_COMMENT') {
         const user = action.user;
         const topic = action.topic;
-        const commentText = action.comment;
+        const replyText = action.comment;
         const commentParentId = action.parentId;
 
-        const newComment = {
+        const newReply = {
             id: `${user.username}_${Math.floor(Math.random() * 999)}`,
             topic,
-            content: commentText,
+            content: replyText,
             createdAt: new Date().toLocaleDateString(),
             username: user.username,
             avatar: user.image,
@@ -120,9 +120,9 @@ const commentsDataReducer = function (state, action) {
             parentId: commentParentId,
         };
 
-        addCommentToDataBase(newComment);
+        addCommentToDataBase(newReply);
 
-        state = [...state, newComment];
+        state = [...state, newReply];
         return state;
     }
 
@@ -167,7 +167,7 @@ const DataProvider = function (props) {
     const addCommentHandler = function (user, topic, comment) {
         dispatchCommentAction({ type: 'ADD_COMMENT', user, topic, comment });
     };
-    const deleteCommentHandler = function (user, parentId, topic, comment) {
+    const replyCommentHandler = function (user, parentId, topic, comment) {
         dispatchCommentAction({ type: 'REPLY_COMMENT', user, parentId, topic, comment });
     };
     const voteCommentHandler = function (comment, vote) {
@@ -184,7 +184,7 @@ const DataProvider = function (props) {
         comments: commentState,
         filterComments: filterCommentsHandler,
         addComment: addCommentHandler,
-        replyComment: deleteCommentHandler,
+        replyComment: replyCommentHandler,
         voteComment: voteCommentHandler,
     };
 
