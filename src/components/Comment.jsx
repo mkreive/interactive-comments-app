@@ -15,11 +15,15 @@ const Comment = function (props) {
     const replies = props.replies;
     const context = useContext(UserContext);
     const comments = context.comments;
+    const usernames = [];
 
     // functions
-    const getUsernames = function () {
-        return comments.filter((comment) => comment.username);
-    };
+    (function () {
+        comments.forEach((comment) => {
+            usernames.push({ id: comment.id, display: comment.username });
+        });
+    })();
+
     const getReplies = function (commentId) {
         const replies = comments.filter((comment) => comment.parentId === commentId);
         return replies;
@@ -45,7 +49,6 @@ const Comment = function (props) {
         }
     };
 
-    console.log(comments);
     return (
         <div>
             <div className='card'>
@@ -75,7 +78,7 @@ const Comment = function (props) {
                     </article>
                 </div>
             </div>
-            {replyComment && <Reply usernames={getUsernames} />}
+            {replyComment && <Reply usernames={usernames} />}
             {replies.length > 0 && (
                 <div className='replies'>
                     {replies.map((reply) => (

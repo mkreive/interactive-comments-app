@@ -23,5 +23,22 @@
         font-size: $font-size-medium;
         color: $color-black;
         border: 1px solid $color-primary-moderate-blue;
+
+        &__input {
+            padding: 2rem;
+            display: block;
+            width: 100%;
+            position: absolute;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: inherit;
+            letter-spacing: inherit;
+            height: auto;
+            bottom: 0px;
+            overflow: hidden;
+            resize: none;
+            border: none;
+            outline: none;
+        }
     }
 }
