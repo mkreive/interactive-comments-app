@@ -32,7 +32,13 @@ const Reply = function (props) {
                     value={reply}
                     onChange={writingReplyHandler}
                 >
-                    <Mention trigger='@' data={usernames} appendSpaceOnAdd markup='@[__display__]'></Mention>
+                    <Mention
+                        trigger='@'
+                        data={usernames}
+                        appendSpaceOnAdd
+                        markup='@[__display__]   '
+                        placeholder='@username'
+                    ></Mention>
                 </MentionsInput>
                 <button className='btn btn--blue' onClick={addReplyHandler}>
                     Reply
