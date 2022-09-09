@@ -59,11 +59,15 @@ const Comment = function (props) {
                 <div className='comment'>
                     <div className='comment__votes'>
                         <span className='comment__votes__btn' onClick={upvoteHandler}>
-                            +
+                            {comment.username !== context.user.username &&
+                                `${'+'}
+                            `}
                         </span>
                         <span className='comment__votes__btn-number'>{score}</span>
                         <span className='comment__votes__btn' onClick={downvoteHandler}>
-                            -
+                            {comment.username !== context.user.username &&
+                                `${'-'}
+                            `}
                         </span>
                     </div>
                     <article className='comment__main'>
