@@ -37,16 +37,13 @@
             width: 5rem;
             color: $color-primary-soft-red;
         }
+        &:focus {
+            color: $color-primary-soft-red;
+            font-weight: $font-weight-medium;
+        }
     }
 }
 .selected {
     color: $color-primary-soft-red;
-    content: '';
-    display: block;
-    position: absolute;
-    height: 2px;
-    width: 0;
-    left: 0;
-    background-color: $color-primary-soft-red;
-    bottom: 0;
+    font-weight: $font-weight-medium;
 }

@@ -125,8 +125,8 @@ const Header = function () {
                     </div>
 
                     <ul className='navigation'>
-                        <li className='navigation__item'>My topics</li>
-                        <li className='navigation__item'>My profile</li>
+                        <li className='navigation__item'>Messages</li>
+                        <li className='navigation__item'>Profile</li>
                         <li className='navigation__item' onClick={logoutHandler}>
                             Log Out
                         </li>
