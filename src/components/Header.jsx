@@ -77,7 +77,7 @@ const Header = function () {
                     <Link
                         to='/topics'
                         style={linkStyle}
-                        className={menuSelected ? 'navigation__item' : 'navigation__item active'}
+                        className={menuSelected ? 'navigation__item' : 'navigation__item selected'}
                     >
                         Topics
                     </Link>
