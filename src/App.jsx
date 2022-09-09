@@ -12,6 +12,8 @@ const App = function () {
             <div className='app'>
                 <Header />
                 <Routes>
+                    <Route index element={<Topics />} />
+                    <Route path='/' element={<Topics />} />
                     <Route path='/about' element={<About />} />
                     <Route path='/topics/*' element={<Topics />} />
                     <Route path='/contacts' element={<Contacts />} />

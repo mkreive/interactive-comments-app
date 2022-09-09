@@ -13,6 +13,7 @@ const Header = function () {
     const [usernameInput, setUsernameInput] = useState();
     const [passwordInput, setPasswordInput] = useState();
     const [errorMessage, setErrorMessage] = useState('');
+    const [menuSelected, setMenuSelected] = useState(false);
 
     // functions
     const userInStorage = getLocalStorage('userId');
@@ -24,6 +25,9 @@ const Header = function () {
     }, [loggedUser.username]);
 
     // handlers
+    const onMenuClick = function () {
+        setMenuSelected(true);
+    };
     const usernameInputHandler = function (event) {
         setUsernameInput(event.target.value);
     };
@@ -66,11 +70,15 @@ const Header = function () {
             </div>
 
             <nav className='header__nav'>
-                <ul className='navigation'>
+                <ul className='navigation' onClick={onMenuClick}>
                     <Link to='/about' style={linkStyle} className='navigation__item'>
                         About
                     </Link>
-                    <Link to='/topics' style={linkStyle} className='navigation__item'>
+                    <Link
+                        to='/topics'
+                        style={linkStyle}
+                        className={menuSelected ? 'navigation__item' : 'navigation__item red'}
+                    >
                         Topics
                     </Link>
                     <Link to='/contacts' style={linkStyle} className='navigation__item'>

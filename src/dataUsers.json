@@ -3,6 +3,15 @@
 
     "users": [
         {
+            "id": "anonymous",
+            "password": "anonymous",
+            "name": "anonymous",
+            "image": "https://res.cloudinary.com/kreiva/image/upload/v1660117424/Interactive%20comments%20app/anonymous_iqa63x.png",
+            "username": "anonymous",
+            "replies": [],
+            "comments": []
+        },
+        {
             "id": "amyrobson111",
             "password": "111amy",
             "name": "Amy Robertson",
