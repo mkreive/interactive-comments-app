@@ -38,25 +38,6 @@ export const fetchData = async function (address) {
     return responseData;
 };
 
-export const updateCommentsData = async function (commentId, key, value) {
-    const newAccount = await fetch(
-        `https://to-do-list-app-10ca0-default-rtdb.europe-west1.firebasedatabase.app/users/.json`,
-        {
-            method: 'POST',
-            body: JSON.stringify({
-                // name: name,
-                // password: password,
-                // name_password: `${name}_${password}`,
-                do: '',
-                done: '',
-            }),
-        }
-    );
-    if (!newAccount.ok) {
-        throw new Error('Failed to create account');
-    }
-};
-
 export const voteComment = async function (commentId, score) {
     const id = commentId;
     const newScore = score;
@@ -82,5 +63,10 @@ export const addCommentToDataBase = async function (comment) {
             username: comment.username,
             avatar: comment.avatar,
         }),
+    });
+};
+export const deleteCommentFromDataBase = async function (commentId) {
+    fetch(`https://interactivecommentsapp-default-rtdb.europe-west1.firebasedatabase.app/comments/${commentId}.json`, {
+        method: 'DELETE',
     });
 };

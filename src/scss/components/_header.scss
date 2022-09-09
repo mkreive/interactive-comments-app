@@ -10,6 +10,17 @@
         background-position: 1px 0px;
         margin-left: auto;
     }
+    &-delete {
+        color: $color-primary-soft-red;
+        font-size: $font-size-small;
+        font-weight: $font-weight-medium;
+        padding-left: 2rem;
+        cursor: pointer;
+        margin-left: auto;
+        background-image: url('https://res.cloudinary.com/kreiva/image/upload/v1656577483/Interactive%20comments%20app/icon-delete_m84sxc.svg');
+        background-repeat: no-repeat;
+        background-position: 1px 0px;
+    }
 
     &-huge {
         font-size: $font-size-huge;

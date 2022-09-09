@@ -37,6 +37,9 @@ const Comment = function (props) {
     const onSubmitReplyHandler = function () {
         setReplyComment(false);
     };
+    const onDeleteCommentHandler = function () {
+        context.deleteComment(comment.id);
+    };
 
     const upvoteHandler = function () {
         if (!voted) {
@@ -78,9 +81,16 @@ const Comment = function (props) {
                                 <span className='header-small-colored'>you</span>
                             )}
                             <span className='header-small-gray'>{comment.createdAt}</span>
-                            <div className='header-reply' onClick={onReplyHandler}>
-                                Reply
-                            </div>
+
+                            {comment.username === context.user.username ? (
+                                <div className='header-delete' onClick={onDeleteCommentHandler}>
+                                    Delete
+                                </div>
+                            ) : (
+                                <div className='header-reply' onClick={onReplyHandler}>
+                                    Reply
+                                </div>
+                            )}
                         </header>
                         <div className='text'>{comment.content}</div>
                     </article>

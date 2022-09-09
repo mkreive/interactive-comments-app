@@ -1,7 +1,13 @@
 import React, { useReducer } from 'react';
 import UserContext from './user-context';
 import dataUsers from '../dataUsers';
-import { setLocalStorage, fetchData, voteComment, addCommentToDataBase } from '../helperFunctions';
+import {
+    setLocalStorage,
+    fetchData,
+    voteComment,
+    addCommentToDataBase,
+    deleteCommentFromDataBase,
+} from '../helperFunctions';
 
 const usersData = dataUsers.users;
 let commentsData;
@@ -140,6 +146,14 @@ const commentsDataReducer = function (state, action) {
         voteComment(commentId, newScore);
         return state;
     }
+
+    if (action.type === 'DELETE_COMMENT') {
+        const commentId = action.commentId;
+        const newState = state.filter((comment) => comment.id !== commentId);
+        deleteCommentFromDataBase(commentId);
+
+        return newState;
+    }
     return defaultCommentState;
 };
 
@@ -173,6 +187,9 @@ const DataProvider = function (props) {
     const voteCommentHandler = function (comment, vote) {
         dispatchCommentAction({ type: 'VOTE_COMMENT', comment, vote });
     };
+    const deleteCommentHandler = function (commentId) {
+        dispatchCommentAction({ type: 'DELETE_COMMENT', commentId });
+    };
 
     const userContext = {
         user: userState,
@@ -186,6 +203,7 @@ const DataProvider = function (props) {
         addComment: addCommentHandler,
         replyComment: replyCommentHandler,
         voteComment: voteCommentHandler,
+        deleteComment: deleteCommentHandler,
     };
 
     return <UserContext.Provider value={userContext}>{props.children}</UserContext.Provider>;
