@@ -80,6 +80,7 @@ const Comment = function (props) {
                             {comment.username === context.user.username && (
                                 <span className='header-small-colored'>you</span>
                             )}
+                            {comment.speciality && <span className='header-small-colored'>{comment.speciality}</span>}
                             <span className='header-small-gray'>{comment.createdAt}</span>
 
                             {comment.username === context.user.username ? (

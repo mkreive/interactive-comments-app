@@ -3,6 +3,10 @@
     color: $color-neutral-light-grayish-blue;
     line-height: 2rem;
 
+    &__about {
+        margin-bottom: $margin-bottom-medium;
+    }
+
     &--comment {
         border: 1px solid $color-neutral-light-gray !important;
         margin-top: $margin-bottom-medium;

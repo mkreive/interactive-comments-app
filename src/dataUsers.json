@@ -33,9 +33,7 @@
             "name": "Jason Matthews",
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
             "username": "jasontm"
-        }
-    ],
-    "specialists": [
+        },
         {
             "id": "marcuslogan",
             "password": "marcuslogan111",
@@ -50,9 +48,27 @@
             "password": "matilda222",
             "name": "Matilda Fergy",
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1662972420/Interactive%20comments%20app/matilda_s7z2pm.png",
-            "username": "matildaFergy",
+            "username": "matildafergy",
             "field": "travel",
             "speciality": "travel agent, hiker, jogger"
+        },
+        {
+            "id": "mitchelburton",
+            "password": "mitchel333",
+            "name": "Mitchel Burton",
+            "image": "https://res.cloudinary.com/kreiva/image/upload/v1662975322/Interactive%20comments%20app/mitchel_pc9mw7.png",
+            "username": "mitchelburton",
+            "field": "health",
+            "speciality": "doctor"
+        },
+        {
+            "id": "jameslanister",
+            "password": "james444",
+            "name": "James Lanister",
+            "image": "https://res.cloudinary.com/kreiva/image/upload/v1662975763/Interactive%20comments%20app/james_ydraas.png",
+            "username": "jameslanister",
+            "field": "food",
+            "speciality": "cook / designer / foodie"
         }
     ]
 }
