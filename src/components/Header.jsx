@@ -21,6 +21,8 @@ const Header = function () {
         if (userInStorage) {
             userCtx.logged(userInStorage);
             setIsLogged(true);
+        } else if (!userInStorage) {
+            userCtx.logged('anonymous');
         }
     }, [loggedUser.username]);
 

@@ -57,6 +57,7 @@ const defaultCommentState = [
 const userDataReducer = function (state, action) {
     if (action.type === 'LOGGED') {
         const existingUser = usersData.find((user) => user.username === action.username);
+        console.log(existingUser);
         return existingUser;
     }
     if (action.type === 'LOGIN') {
