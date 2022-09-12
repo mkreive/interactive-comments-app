@@ -25,18 +25,34 @@
             "password": "222tim",
             "name": "Tim Richardson",
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680048/Interactive%20comments%20app/image-juliusomo_mc7vjj.png",
-            "username": "timirimi",
-            "replies": [],
-            "comments": ["tim_111", "tim_222", "tim_333", "tim_444", "tim_777", "tim_999"]
+            "username": "timirimi"
         },
         {
             "id": "jasontm333",
             "password": "333jason",
             "name": "Jason Matthews",
             "image": "https://res.cloudinary.com/kreiva/image/upload/v1656680047/Interactive%20comments%20app/image-maxblagun_tih4bh.png",
-            "username": "jasontm",
-            "replies": [],
-            "comments": ["jas_111", "jas_222", "jas_444"]
+            "username": "jasontm"
+        }
+    ],
+    "specialists": [
+        {
+            "id": "marcuslogan",
+            "password": "marcuslogan111",
+            "name": "Marcus Logan",
+            "image": "https://res.cloudinary.com/kreiva/image/upload/v1662972160/Interactive%20comments%20app/marcs_oda8ac.png",
+            "username": "marcuslogan",
+            "field": "hobbies",
+            "speciality": "surfer, bookstore owner, boardgamer, diver, designer"
+        },
+        {
+            "id": "matildafergy",
+            "password": "matilda222",
+            "name": "Matilda Fergy",
+            "image": "https://res.cloudinary.com/kreiva/image/upload/v1662972420/Interactive%20comments%20app/matilda_s7z2pm.png",
+            "username": "matildaFergy",
+            "field": "travel",
+            "speciality": "travel agent, hiker, jogger"
         }
     ]
 }

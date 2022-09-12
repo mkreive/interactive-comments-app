@@ -8,9 +8,11 @@ const About = function () {
                 <h1 className='header-huge'>About</h1>
             </header>
             <div className='text card '>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, reiciendis! Voluptates reiciendis,
-                dolorum iure explicabo at earum fuga deserunt ipsa doloribus temporibus quis eligendi ea odio itaque hic
-                velit provident.
+                Hello! <br />
+                Welcome to our project! We are here to help you find solutions, answers or advices about any issue you
+                have! <br />
+                For every topic we have a specialist who knows his field and will guide you in finding answers to any
+                questions you have.
             </div>
         </div>
     );

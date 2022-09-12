@@ -8,7 +8,7 @@ import AddComment from './AddComment';
 
 const Topics = function () {
     // states
-    const [selected, setSelected] = useState('hobbies');
+    const [selected, setSelected] = useState('');
     const [parents, setParents] = useState([]);
 
     // data
@@ -34,7 +34,6 @@ const Topics = function () {
         setSelected(selectedTopic);
     };
 
-    // context.filterComments(selected);
     const linkStyle = {
         textDecoration: 'none',
     };
@@ -57,6 +56,12 @@ const Topics = function () {
                     ))}
                 </div>
             </header>
+            {!selected && (
+                <div className='text'>
+                    Choose a theme, ask a question and you will get advice from that field specialist and our friendly
+                    community!
+                </div>
+            )}
             {comments[0].id &&
                 parents.map((comment) => (
                     <Comment
