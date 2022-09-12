@@ -8,7 +8,7 @@ import AddComment from './AddComment';
 
 const Topics = function () {
     // states
-    const [selected, setSelected] = useState('');
+    const [selected, setSelected] = useState('hobbies');
     const [parents, setParents] = useState([]);
 
     // data
@@ -22,6 +22,11 @@ const Topics = function () {
         setParents(parentComments);
     }, [comments]);
 
+    const getReplies = function (commentId) {
+        const replies = comments.filter((comment) => comment.parentId === commentId);
+        return replies;
+    };
+
     // handlers
     const topicSelectHandler = function (event) {
         const selectedTopic = event.target.innerText;
@@ -29,11 +34,7 @@ const Topics = function () {
         setSelected(selectedTopic);
     };
 
-    const getReplies = function (commentId) {
-        const replies = comments.filter((comment) => comment.parentId === commentId);
-        return replies;
-    };
-
+    // context.filterComments(selected);
     const linkStyle = {
         textDecoration: 'none',
     };
