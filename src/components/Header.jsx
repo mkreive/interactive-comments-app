@@ -41,9 +41,13 @@ const Header = function () {
 
         if (validateInput(usernameInput) && validatePassword(passwordInput)) {
             userCtx.login(username, password);
-            setIsLogged(true);
         } else {
             setErrorMessage('Username and/or password is invalid');
+        }
+        if (userCtx.user.username.length > 0) {
+            setIsLogged(true);
+        } else {
+            setErrorMessage('Username does not exist');
         }
     };
 
