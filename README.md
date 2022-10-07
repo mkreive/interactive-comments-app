@@ -1,6 +1,6 @@
 # Frontend Mentor - Interactive comments section solution
 
-This is a solution to the [Interactive comments section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is my solution to the [Interactive comments section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9). 
 
 ## Table of contents
 
@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/mkreive/interactive-comments-app]
-- Live Site URL: [https://interactive-comments-two.vercel.app/topics/hobbies]
+- Solution URL: [GitHub](https://github.com/mkreive/interactive-comments-app)
+- Live Site URL: [Vercel](https://interactive-comments-two.vercel.app/topics/hobbies)
 
 ## My process
 
@@ -61,7 +61,7 @@ I would like to finish loging/signup features. Also would like to learn more abo
 ## Author
 
 - Website - [Monika](https://github.com/mkreive)
-- Frontend Mentor - [@mkreive](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@mkreive](https://www.frontendmentor.io/profile/mkreive)
 
 # Contributors
 
